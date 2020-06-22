@@ -1,0 +1,4660 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <base target="_blank"/>
+  <meta charset="utf-8"/>
+  <title>
+   Buff Cap Calculator
+  </title>
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/slate/bootstrap.min.css" integrity="sha384-G9YbB4o4U6WS4wCthMOpAeweY4gQJyyx0P3nZbEBHyz+AtNoeasfRChmek1C2iqV" rel="stylesheet"/>
+  <link href="main.css" rel="stylesheet"/>
+  <script>
+   // noinspection JSUnusedGlobalSymbols
+    let whTooltips = {colorLinks: true, iconizeLinks: false, iconSize: "small", hide: {droppedby: true, dropchance: true, sellprice: true, maxstack: true, ilvl: true}};
+  </script>
+  <script src="https://wow.zamimg.com/widgets/power.js">
+  </script>
+ </head>
+ <body>
+  <nav class="navbar fixed-top navbar-expand-md bg-dark">
+   <div class="container">
+    <h2>
+     Buff Cap Calculator
+     <span class="badge badge-success" id="buff-count-container">
+      <span id="total-buff-count">
+       0
+      </span>
+      <span class="hidden d-none d-sm-inline" data-color-blind-help="" id="buff-count-warning">
+       ⓘ
+      </span>
+      <span class="hidden d-none d-sm-inline" data-color-blind-help="" id="buff-count-danger">
+       ⚠
+      </span>
+     </span>
+    </h2>
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <input id="clipboard-input" type="hidden"/>
+    <button class="btn btn-primary d-none d-md-inline" id="clipboard-button">
+     Share
+    </button>
+    <button class="btn btn-primary" id="clear-all">
+     Clear All
+    </button>
+    <button class="btn btn-secondary d-none d-md-inline" data-target="#about-modal" data-toggle="modal">
+     About
+    </button>
+   </div>
+  </nav>
+  <main class="container">
+   <div class="row bc-buff-section">
+    <div class="col-lg">
+     <!--World Buffs-->
+     <div class="border bc-cell" data-primary-category="">
+      <div class="bc-cell-header m-sm-1">
+       <span class="h4">
+        World Buffs
+        <span data-category-count="">
+        </span>
+       </span>
+       <button aria-expanded="true" class="btn-sm btn-secondary d-lg-none float-right ml-3" data-target="#world-buffs" data-toggle="collapse">
+        <span class="collapse-icon-open">
+         –
+        </span>
+        <span class="collapse-icon-closed">
+         +
+        </span>
+       </button>
+       <button class="btn-sm btn-secondary float-right" data-clear-button="">
+        Clear
+       </button>
+      </div>
+      <div class="collapse show" id="world-buffs">
+       <div>
+        <input id="spell-22888" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22888/rallying-cry-of-the-dragonslayer">
+         <img alt="Rallying Cry of the Dragonslayer" src="img/inv_misc_head_dragon_01.jpg"/>
+        </a>
+        <label for="spell-22888">
+         屠龙者的咆哮
+        </label>
+       </div>
+       <div>
+        <input id="spell-16609" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16609/warchiefs-blessing">
+         <img alt="Warchief's Blessing" src="img/spell_arcane_teleportorgrimmar.jpg"/>
+        </a>
+        <label for="spell-16609">
+         酋长的祝福
+        </label>
+       </div>
+       <div>
+        <input id="spell-22817" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22817/fengus-ferocity">
+         <img alt="Fengus' Ferocity" src="img/spell_nature_undyingstrength.jpg"/>
+        </a>
+        <label for="spell-22817">
+         芬古斯的狂暴
+        </label>
+       </div>
+       <div>
+        <input id="spell-22818" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22818/moldars-moxie">
+         <img alt="Mol'dar's Moxie" src="img/spell_nature_massteleport.jpg"/>
+        </a>
+        <label for="spell-22818">
+         摩尔达的勇气
+        </label>
+       </div>
+       <div>
+        <input id="spell-22820" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22820/slipkiks-savvy">
+         <img alt="Slip'kik's Savvy" src="img/spell_holy_lesserheal02.jpg"/>
+        </a>
+        <label for="spell-22820">
+         斯里基克的机智
+        </label>
+       </div>
+       <div>
+        <input id="spell-15366" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=15366/songflower-serenade">
+         <img alt="Songflower Serenade" src="img/spell_holy_mindvision.jpg"/>
+        </a>
+        <label for="spell-15366">
+         风歌夜曲
+        </label>
+       </div>
+       <div>
+        <input id="spell-24425" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=24425/spirit-of-zandalar">
+         <img alt="Spirit of Zandalar" src="img/ability_creature_poison_05.jpg"/>
+        </a>
+        <label for="spell-24425">
+         赞达拉之魂
+        </label>
+       </div>
+       <div>
+        <input id="spell-29534" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29534/traces-of-silithyst">
+         <img alt="Traces of Silithyst" src="img/spell_nature_timestop.jpg"/>
+        </a>
+        <label for="spell-29534">
+         水晶尘迹
+        </label>
+       </div>
+       <div>
+        <input id="spell-30754" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=30754/cenarion-favor">
+         <img alt="Cenarion Favor" src="img/spell_nature_rockbiter.jpg"/>
+        </a>
+        <label for="spell-30754">
+         塞纳里奥的好感
+        </label>
+        <a data-toggle="collapse" href="#cenarion-favor">
+         <img alt="More Info" data-info="" src="img/Information.png"/>
+        </a>
+        <small class="collapse mb-sm-3" id="cenarion-favor">
+         Zone-wide in Silithus, AQ20 and AQ40.
+         <br/>
+         Get by winning the world PVP objective in Silithus.
+        </small>
+       </div>
+       <div>
+        <input id="spell-1386" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1386/echoes-of-lordaeron">
+         <img alt="Echoes of Lordaeron" src="img/inv_bannerpvp_02.jpg"/>
+        </a>
+        <label for="spell-1386">
+         洛丹伦的回响
+        </label>
+       </div>
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Some members of this group stack.&lt;br /&gt;Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Mind Control Buffs" src="img/spell_shadow_shadowworddominate.jpg"/>
+        Mind Control Buffs
+        <a data-toggle="collapse" href="#mind-control-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="mind-control-buffs">
+         <li>
+          <input id="spell-15123" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=15123/resist-fire">
+           <img alt="Resist Fire" src="img/spell_fire_firearmor.jpg"/>
+          </a>
+          <label for="spell-15123">
+           抵抗火焰
+          </label>
+          <a data-toggle="collapse" href="#resist-fire">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="resist-fire">
+           Gives 81-83 fire resistance.
+           <br/>
+           Stacks with
+           <a data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=10535/fire-resistance">
+            totem
+           </a>
+           /
+           <a data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=19900/fire-resistance-aura">
+            aura
+           </a>
+           and
+           <a data-info="" href="https://classic.wowhead.com/item=12455/juju-ember">
+            魂能之灰
+           </a>
+           .
+           <br/>
+           Mind control a
+           <a data-info="" href="https://classic.wowhead.com/npc=9098/scarshield-spellbinder">
+            Scarshield Spellbinder
+           </a>
+           in UBRS.
+          </small>
+         </li>
+         <li>
+          <input id="spell-17175" type="checkbox"/>
+          <a data-wowhead="buff&amp;lvl=55" href="https://classic.wowhead.com/spell=17175/resist-arcane">
+           <img alt="Resist Arcane" src="img/spell_arcane_blink.jpg"/>
+          </a>
+          <label for="spell-17175">
+           抵抗奥术
+          </label>
+          <a data-toggle="collapse" href="#resist-arcane">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="resist-arcane">
+           Gives 81 arcane resistance.
+           <br/>
+           Mind control a
+           <a data-info="" href="https://classic.wowhead.com/npc=10605/scarlet-medic">
+            Scarlet Medic
+           </a>
+           in WPL.
+          </small>
+         </li>
+         <li>
+          <input id="spell-15288" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=15288/fury-of-ragnaros">
+           <img alt="Fury of Ragnaros" src="img/spell_holy_mindsooth.jpg"/>
+          </a>
+          <label for="spell-15288">
+           拉格纳罗斯之怒
+          </label>
+          <a data-toggle="collapse" href="#fury-of-ragnaros">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="fury-of-ragnaros">
+           Mind control a
+           <a data-info="" href="https://classic.wowhead.com/npc=8913/twilight-emissary">
+            Twilight Emissary
+           </a>
+           in BRD.
+           <br/>
+           Doesn't stack with
+           <a data-info="" href="https://classic.wowhead.com/item=13454/greater-arcane-elixir">
+            强效奥法药剂
+           </a>
+           .
+          </small>
+         </li>
+         <li>
+          <input id="spell-16587" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16587/dark-whispers">
+           <img alt="Dark Whispers" src="img/spell_shadow_haunting.jpg"/>
+          </a>
+          <label for="spell-16587">
+           黑暗耳语
+          </label>
+          <a data-toggle="collapse" href="#dark-whispers">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="dark-whispers">
+           Mind control a
+           <a data-info="" href="https://classic.wowhead.com/npc=8548/vile-tutor">
+            Vile Tutor
+           </a>
+           in EPL.
+          </small>
+         </li>
+         <li>
+          <input id="spell-17150" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=17150/arcane-might">
+           <img alt="Arcane Might" src="img/spell_holy_mindsooth.jpg"/>
+          </a>
+          <label for="spell-17150">
+           奥术之力
+          </label>
+          <a data-toggle="collapse" href="#arcane-might">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="arcane-might">
+           MC a
+           <a data-info="" href="https://classic.wowhead.com/npc=10422/crimson-sorcerer">
+            Crimson Sorcerer
+           </a>
+           in Strat Live.
+           <br/>
+           Doesn't stack with
+           <a data-info="" href="https://classic.wowhead.com/item=13454/greater-arcane-elixir">
+            强效奥法药剂
+           </a>
+           .
+           <br/>
+           Priest Mind Control
+           <b>
+            DOES NOT WORK
+           </b>
+           .
+           <br/>
+           Use an
+           <a href="https://classic.wowhead.com/item=10726/gnomish-mind-control-cap">
+            侏儒洗脑帽
+           </a>
+           .
+           <br/>
+           <a class="small-inline exclusion-modal-link" data-target="#arcane-might-explanation" data-toggle="modal">
+            Click for more info.
+           </a>
+          </small>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+      </div>
+     </div>
+     <!--Holiday-->
+     <div class="border bc-cell" data-primary-category="">
+      <div class="bc-cell-header m-sm-1">
+       <span class="h4">
+        Holiday
+        <span data-category-count="">
+        </span>
+       </span>
+       <button aria-expanded="true" class="btn-sm btn-secondary d-lg-none float-right ml-3" data-target="#holiday" data-toggle="collapse">
+        <span class="collapse-icon-open">
+         –
+        </span>
+        <span class="collapse-icon-closed">
+         +
+        </span>
+       </button>
+       <button class="ml-3 btn-sm btn-secondary float-right" data-clear-button="">
+        Clear
+       </button>
+      </div>
+      <div class="collapse show" id="holiday">
+       <div>
+        <input id="spell-26522" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=26522/lunar-fortune">
+         <img alt="Lucky Rocket Cluster" src="img/inv_misc_missilelargecluster_white.jpg"/>
+        </a>
+        <label for="spell-26522">
+         春节的财富！
+        </label>
+       </div>
+       <div>
+        <input id="spell-5816" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=5816/light-of-elune">
+         月神之光
+        </a>
+        <label for="spell-5816">
+         自然集中
+        </label>
+       </div>
+       <div>
+        <input id="spell-26393" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=26393/elunes-blessing">
+         <img alt="Elune's Blessing" src="img/inv_misc_gem_pearl_02.jpg"/>
+        </a>
+        <label for="spell-26393">
+         艾露恩的祝福
+        </label>
+       </div>
+       <!--Valentine's Day Collection-->
+       <div>
+        <div>
+         <input data-exclusive="non-profession" id="spell-27669" type="checkbox"/>
+         <img alt="Valentine's Day Collection" src="img/inv_misc_gift_01.jpg"/>
+         <label for="spell-27669">
+          奥格瑞玛友谊礼品包
+         </label>
+         <a data-toggle="collapse" href="#valentines-collection">
+          ▼
+         </a>
+        </div>
+        <ul class="collapse mb-sm-3" id="valentines-collection">
+         <li>
+          <small>
+           In the
+           <a class="small-inline exclusion-modal-link" data-target="#non-profession-exclusion-modal" data-toggle="modal">
+            non-profession consumable
+            <br/>
+            exclusion category.
+           </a>
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27669/orgrimmar-gift-of-friendship">
+           <img alt="Orgrimmar Gift of Friendship" src="img/inv_misc_gift_01.jpg"/>
+           Orgrimmar Gift of Friendship
+          </a>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27671/undercity-gift-of-friendship">
+           <img alt="Undercity Gift of Friendship" src="img/INV_Misc_Gift_04.png"/>
+           Undercity Gift of Friendship
+          </a>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27670/thunder-bluff-gift-of-friendship">
+           <img alt="Thunder Bluff Gift of Friendship" src="img/INV_Misc_Gift_05.png"/>
+           Thunder Bluff Gift of Friendship
+          </a>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27665/ironforge-gift-of-friendship">
+           <img alt="Ironforge Gift of Friendship" src="img/inv_misc_gift_01.jpg"/>
+           Ironforge Gift of Friendship
+          </a>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27664/stormwind-gift-of-friendship">
+           <img alt="Stormwind Gift of Friendship" src="img/INV_Misc_Gift_03.png"/>
+           Stormwind Gift of Friendship
+          </a>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27666/darnassus-gift-of-friendship">
+           <img alt="Darnassus Gift of Friendship" src="img/INV_Misc_Gift_02.png"/>
+           Darnassus Gift of Friendship
+          </a>
+         </li>
+        </ul>
+       </div>
+       <!--Valentine's Candy-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Members of this group stack.&lt;br /&gt;Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Valentine's Day Candy" src="img/inv_valentinesboxofchocolates01.jpg"/>
+        Valentine's Day Candy
+        <a data-toggle="collapse" href="#valentines-candy">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="valentines-candy">
+         <li>
+          <input id="spell-22239" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=22239/sweet-surprise">
+           甜蜜惊喜
+          </a>
+          <label for="spell-22239">
+          </label>
+         </li>
+         <li>
+          <input id="spell-22238" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=22238/very-berry-cream">
+           水果芬芳
+          </a>
+          <label for="spell-22238">
+          </label>
+         </li>
+         <li>
+          <input id="spell-22236" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=22236/buttermilk-delight">
+           快乐奶油
+          </a>
+          <label for="spell-22236">
+          </label>
+         </li>
+         <li>
+          <input id="spell-22237" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=22237/dark-desire">
+           黑色欲望
+          </a>
+          <label for="spell-22237">
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <div class="stacking-buff">
+        <span class="stacking-count">
+        </span>
+        <input id="spell-27572" type="hidden" value="0"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27572/smitten">
+         <img alt="Smitten" src="img/inv_ammo_arrow_02.jpg"/>
+        </a>
+        <label for="spell-27572">
+         爱情的重击
+        </label>
+        <a data-toggle="collapse" href="#smitten">
+         <img alt="More Info" data-info="" src="img/Information.png"/>
+        </a>
+        <small class="collapse mb-sm-3" id="smitten">
+         Multiple buffs can be acquired via layer abuse
+         <br/>
+         and between server restarts.
+        </small>
+       </div>
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Members of this group stack.&lt;br /&gt;Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Midsummer Fire Festival" src="img/inv_misc_summerfest_brazierorange.jpg"/>
+        Fire Festival Buffs
+        <a data-toggle="collapse" href="#fire-festival">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="fire-festival">
+         <li>
+          <input id="spell-29338" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29338/fire-festival-fury">
+           <img alt="Fire Festival Fury" src="img/inv_misc_summerfest_brazierorange.jpg"/>
+          </a>
+          <label for="spell-29338">
+           火焰节之怒
+          </label>
+          <a data-toggle="collapse" href="#fire-festival-fury">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="fire-festival-fury">
+           Throw a
+           <a data-info="" href="https://classic.wowhead.com/item=23247/burning-blossom">
+            燃烧之花
+           </a>
+           into a bonfire.
+          </small>
+         </li>
+         <li>
+          <input id="spell-29175" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29175/ribbon-dance">
+           <img alt="Ribbon Dance" src="img/inv_summerfest_symbol_medium.jpg"/>
+          </a>
+          <label for="spell-29175">
+           彩带之舞
+          </label>
+          <a data-toggle="collapse" href="#ribbon-dance">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="ribbon-dance">
+           Dance with at least one other person around a Ribbon Pole.
+          </small>
+         </li>
+         <li>
+          <input id="spell-29235" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29235/fire-festival-fortitude">
+           <img alt="Fire Festival Fortitude" src="img/inv_summerfest_firespirit.jpg"/>
+          </a>
+          <label for="spell-29235">
+           火焰节之韧
+          </label>
+          <a data-toggle="collapse" href="#fire-festival-fortitude">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="fire-festival-fortitude">
+           Zone-wide buff from turning in a
+           <a data-info="" href="https://classic.wowhead.com/quest=9330/stealing-stormwinds-flame">
+            Stealing ___'s Flame
+           </a>
+           quest.
+          </small>
+         </li>
+         <li>
+          <input id="spell-29388" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29388/breath-of-fire">
+           <img alt="Fiery Festival Brew" src="img/inv_summerfest_firedrink.jpg"/>
+          </a>
+          <label for="spell-29388">
+           火焰吐息
+          </label>
+         </li>
+         <li>
+          <input id="spell-29332" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29332/fire-toasted-bun">
+           <img alt="Fire-toasted Bun" src="img/inv_misc_food_11.jpg"/>
+          </a>
+          <label for="spell-29332">
+           火烤甜面包
+          </label>
+         </li>
+         <li>
+          <input id="spell-29335" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29335/elderberry-pie">
+           <img alt="Elderberry Pie" src="img/inv_misc_food_10.jpg"/>
+          </a>
+          <label for="spell-29335">
+           蜜饯馅饼
+          </label>
+         </li>
+         <li>
+          <input id="spell-29333" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29333/midsummer-sausage">
+           <img alt="Midsummer Sausage" src="img/inv_misc_food_53.jpg"/>
+          </a>
+          <label for="spell-29333">
+           仲夏腊肠
+          </label>
+         </li>
+         <li>
+          <input id="spell-29334" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29334/toasted-smorc">
+           <img alt="Toasted Smorc" src="img/inv_summerfest_smorc.jpg"/>
+          </a>
+          <label for="spell-29334">
+           牛皮糖
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <div>
+        <input id="spell-24705" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=24705/invocation-of-the-wickerman">
+         <img alt="Invocation of the Wickerman" src="img/inv_waepon_bow_zulgrub_d_02.jpg"/>
+        </a>
+        <label for="spell-24705">
+         稻草人的祈祷
+        </label>
+       </div>
+       <div>
+        <input id="spell-23768" type="checkbox"/>
+        <img alt="Sayge's Dark Fortunes" src="img/inv_misc_orb_02.jpg"/>
+        <label for="spell-23768">
+         塞格的黑暗塔罗牌：伤害
+        </label>
+        <a data-toggle="collapse" href="#darkmoon-faire">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="darkmoon-faire">
+         <li>
+          <small>
+           You can only have one of these at one time.
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23768/sayges-dark-fortune-of-damage">
+           <img alt="Sayge's Dark Fortune of Damage" src="img/inv_misc_orb_02.jpg"/>
+           ... of Damage
+          </a>
+          <small>
+           Slay the man :: Execute painfully
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23769/sayges-dark-fortune-of-resistance">
+           <img alt="Sayge's Dark Fortune of Resistance" src="img/inv_misc_orb_02.jpg"/>
+           ... of Resistance
+          </a>
+          <small>
+           Slay the man :: Execute painlessly
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23767/sayges-dark-fortune-of-armor">
+           <img alt="Sayge's Dark Fortune of Armor" src="img/inv_misc_orb_02.jpg"/>
+           ... of Armor
+          </a>
+          <small>
+           Slay the man :: Let your friend go
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23738/sayges-dark-fortune-of-spirit">
+           <img alt="Sayge's Dark Fortune of Spirit" src="img/inv_misc_orb_02.jpg"/>
+           ... of Spirit
+          </a>
+          <small>
+           Turn him over :: Confront the diplomat
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23766/sayges-dark-fortune-of-intelligence">
+           <img alt="Sayge's Dark Fortune of Intelligence" src="img/inv_misc_orb_02.jpg"/>
+           ... of Intelligence
+          </a>
+          <small>
+           Turn him over :: Show not so quiet defiance
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23737/sayges-dark-fortune-of-stamina">
+           <img alt="Sayge's Dark Fortune of Stamina" src="img/inv_misc_orb_02.jpg"/>
+           ... of Stamina
+          </a>
+          <small>
+           Confiscate the corn :: Speak against your brother
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23735/sayges-dark-fortune-of-strength">
+           <img alt="Sayge's Dark Fortune of Strength" src="img/inv_misc_orb_02.jpg"/>
+           ... of Strength
+          </a>
+          <small>
+           Confiscate the corn :: Help your brother in
+          </small>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23736/sayges-dark-fortune-of-agility">
+           <img alt="Sayge's Dark Fortune of Agility" src="img/inv_misc_orb_02.jpg"/>
+           ... of Agility
+          </a>
+          <small>
+           Confiscate the corn :: Keep your brother out
+          </small>
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <!--Equipment Buffs-->
+     <div class="border bc-cell" data-primary-category="">
+      <div class="bc-cell-header m-sm-1">
+       <span class="h4">
+        Gear Buffs
+        <span data-category-count="">
+        </span>
+       </span>
+       <button aria-expanded="true" class="btn-sm btn-secondary d-lg-none float-right ml-3" data-target="#equipment-buffs" data-toggle="collapse">
+        <span class="collapse-icon-open">
+         –
+        </span>
+        <span class="collapse-icon-closed">
+         +
+        </span>
+       </button>
+       <button class="ml-3 btn-sm btn-secondary float-right" data-clear-button="">
+        Clear
+       </button>
+      </div>
+      <div class="collapse show" id="equipment-buffs">
+       <div class="stacking-buff">
+        <span class="stacking-count">
+        </span>
+        <input id="spell-20007" type="hidden" value="0"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20007/holy-strength">
+         <img alt="Crusader" src="img/spell_holy_blessingofstrength.jpg"/>
+        </a>
+        <label for="spell-20007">
+         神圣力量
+        </label>
+        <a data-toggle="collapse" href="#crusader">
+         <img alt="More Info" data-info="" src="img/Information.png"/>
+        </a>
+        <small class="collapse mb-sm-3" id="crusader">
+         Main hand and off-hand procs are separate and stack.
+         <br/>
+         3+ procs are possible with weapon swapping.
+        </small>
+       </div>
+       <div>
+        <input id="spell-7218" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=6043/iron-counterweight">
+         铁质平衡锤
+        </a>
+        <label for="spell-7218">
+         武器平衡锤
+        </label>
+       </div>
+       <div>
+        <input id="spell-25123" type="checkbox"/>
+        <img alt="Weapon Oils" src="img/inv_potion_100.jpg"/>
+        <label for="spell-25123">
+         卓越法力之油
+        </label>
+        <a data-toggle="collapse" href="#weapon-oils">
+         ▼
+        </a>
+        <ul class="collapse" data-info="" id="weapon-oils">
+         <li>
+          <a href="https://classic.wowhead.com/item=20748/brilliant-mana-oil">
+           卓越法力之油
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=20749/brilliant-wizard-oil">
+           卓越巫师之油
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div>
+        <input id="spell-22850" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=18348/quelserrar">
+         奎尔塞拉
+        </a>
+        <label for="spell-22850">
+         庇护
+        </label>
+       </div>
+       <div>
+        <input id="spell-8348" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=6660/julies-dagger">
+         朱莉的匕首
+        </a>
+        <label for="spell-8348">
+         朱莉叶的祝福
+        </label>
+       </div>
+       <div>
+        <input id="spell-8512" type="checkbox"/>
+        <a href="https://classic.wowhead.com/spell=8512/windfury-totem">
+         <img alt="Windfury Proc" src="img/spell_nature_cyclone.jpg"/>
+        </a>
+        <label for="spell-8512">
+         风怒图腾
+        </label>
+       </div>
+       <div>
+        <input id="spell-16623" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=12645/thorium-shield-spike">
+         瑟银盾刺
+        </a>
+        <label for="spell-16623">
+         瑟银盾刺
+        </label>
+       </div>
+       <div>
+        <input id="spell-9783" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=7969/mithril-spurs">
+         秘银马刺
+        </a>
+        <label for="spell-9783">
+         秘银马刺
+        </label>
+       </div>
+       <div class="stacking-buff">
+        <span class="stacking-count">
+        </span>
+        <input data-maximum="4" id="spell-24427" type="hidden" value="0"/>
+        <a href="https://classic.wowhead.com/item=20130/diamond-flask">
+         钻石水瓶
+        </a>
+        <label for="spell-24427">
+         钻石水瓶
+        </label>
+        <a data-toggle="collapse" href="#on-use-trinket">
+         <img alt="More Info" data-info="" src="img/Information.png"/>
+        </a>
+        <small class="collapse mb-sm-3" id="on-use-trinket">
+         <a href="https://classic.wowhead.com/item=21670/badge-of-the-swarmguard">
+          虫群卫士徽章
+         </a>
+         have more than one buff.
+         <br/>
+         Up to four on-use trinket buffs can be applied.
+        </small>
+       </div>
+       <div>
+        <input id="spell-12418" type="checkbox"/>
+        <a href="https://classic.wowhead.com/spell=12418/stealth-detection">
+         <img alt="Catseye Ultra Goggles" src="img/inv_helmet_47.jpg"/>
+        </a>
+        <label for="spell-12418">
+         侦测潜行
+        </label>
+       </div>
+       <div>
+        <input id="spell-18787" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=18787/heavens-blessing">
+         <img alt="Cloudkeeper Legplates" src="img/inv_pants_04.jpg"/>
+        </a>
+        <label for="spell-18787">
+         天堂祝福
+        </label>
+        <a data-toggle="collapse" href="#ckl">
+         <img alt="More Info" data-info="" src="img/Information.png"/>
+        </a>
+        <small class="collapse mb-sm-3" id="ckl">
+         Puts
+         <a href="https://classic.wowhead.com/item=20130/diamond-flask">
+          钻石水瓶
+         </a>
+         on cooldown and vice versa.
+        </small>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg">
+     <!--Consumables-->
+     <div class="border bc-cell" data-primary-category="">
+      <div class="bc-cell-header m-sm-1">
+       <span class="h4">
+        Consumables
+        <span data-category-count="">
+        </span>
+       </span>
+       <button aria-expanded="true" class="btn-sm btn-secondary d-lg-none float-right ml-3" data-target="#consumables" data-toggle="collapse">
+        <span class="collapse-icon-open">
+         –
+        </span>
+        <span class="collapse-icon-closed">
+         +
+        </span>
+       </button>
+       <button class="ml-3 btn-sm btn-secondary float-right" data-clear-button="">
+        Clear
+       </button>
+      </div>
+      <div class="collapse show" id="consumables">
+       <!--Flask-->
+       <div>
+        <input id="spell-17626" type="checkbox"/>
+        <img alt="Flasks" src="img/inv_potion_62.jpg"/>
+        <label for="spell-17626">
+         泰坦合剂
+        </label>
+        <a data-toggle="collapse" href="#flasks">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="flasks">
+         <li>
+          <small>
+           Only one of these may be active at one time.
+          </small>
+         </li>
+         <li>
+          <small>
+           Persists on death.
+          </small>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=13510/flask-of-the-titans">
+           泰坦合剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=13512/flask-of-supreme-power">
+           超级能量合剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=13511/flask-of-distilled-wisdom">
+           精炼智慧合剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=13513/flask-of-chromatic-resistance">
+           多重抗性合剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=13506/flask-of-petrification">
+           化石合剂
+          </a>
+         </li>
+        </ul>
+       </div>
+       <!--Zanza-->
+       <div>
+        <input data-exclusive="non-profession" id="spell-24382" type="checkbox"/>
+        <img alt="Zanza Potion" src="img/inv_misc_coin_08.jpg"/>
+        <label for="spell-24382">
+         赞扎之魂
+        </label>
+        <a data-toggle="collapse" href="#zanza">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="zanza">
+         <li>
+          <small>
+           In the
+           <a class="small-inline exclusion-modal-link" data-target="#non-profession-exclusion-modal" data-toggle="modal">
+            non-profession consumable
+            <br/>
+            exclusion category.
+           </a>
+          </small>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=20079/spirit-of-zanza">
+           赞扎之魂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=20081/swiftness-of-zanza">
+           赞扎之速
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=20080/sheen-of-zanza">
+           赞扎之光
+          </a>
+         </li>
+        </ul>
+       </div>
+       <!--Blasted Lands-->
+       <div>
+        <input data-exclusive="non-profession" id="spell-10667" type="checkbox"/>
+        <img alt="Blasted Lands Consumable" src="img/inv_stone_15.jpg"/>
+        <label for="spell-10667">
+         远古之怒
+        </label>
+        <a data-toggle="collapse" href="#blasted-lands">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="blasted-lands">
+         <li>
+          <small>
+           In the
+           <a class="small-inline exclusion-modal-link" data-target="#non-profession-exclusion-modal" data-toggle="modal">
+            non-profession consumable
+            <br/>
+            exclusion category.
+           </a>
+          </small>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=8410/r-o-i-d-s#shared-cooldown">
+           土狼兴奋剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=8412/ground-scorpok-assay">
+           厚甲蝎药粉
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=8411/lung-juice-cocktail">
+           肺片鸡尾酒
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=8423/cerebral-cortex-compound">
+           脑皮层混合饮料
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=8424/gizzard-gum">
+           砂囊口香糖
+          </a>
+         </li>
+        </ul>
+       </div>
+       <!--Agility-->
+       <div>
+        <input id="spell-17538" type="checkbox"/>
+        <img alt="Agility" src="img/inv_potion_32.jpg"/>
+        <label for="spell-17538">
+         猫鼬药剂
+        </label>
+        <a data-toggle="collapse" href="#agility">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="agility">
+         <li>
+          <a href="https://classic.wowhead.com/item=13452/elixir-of-the-mongoose">
+           猫鼬药剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=9187/elixir-of-greater-agility">
+           强效敏捷药剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=10309/scroll-of-agility-iv">
+           敏捷卷轴 IV
+          </a>
+         </li>
+        </ul>
+       </div>
+       <!--Strength-->
+       <div>
+        <input id="spell-16323" type="checkbox"/>
+        <img alt="Strength Consumable" src="img/inv_misc_monsterscales_11.jpg"/>
+        <label for="spell-16323">
+         魂能之力
+        </label>
+        <a data-toggle="collapse" href="#strength">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="strength">
+         <li>
+          <a href="https://classic.wowhead.com/item=12451/juju-power">
+           魂能之力
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=9206/elixir-of-giants">
+           巨人药剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=10310/scroll-of-strength-iv">
+           力量卷轴 IV
+          </a>
+         </li>
+        </ul>
+       </div>
+       <!--Attack Power-->
+       <div>
+        <input id="spell-16329" type="checkbox"/>
+        <img alt="Attack Power Consumable" src="img/inv_misc_monsterscales_07.jpg"/>
+        <label for="spell-16329">
+         魂能之击
+        </label>
+        <a data-toggle="collapse" href="#attack-power">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="attack-power">
+         <li>
+          <a href="https://classic.wowhead.com/item=12460/juju-might">
+           魂能之击
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=12820/winterfall-firewater">
+           冬泉火酒
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Members of this group stack.&lt;br /&gt;Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Spell Power Buffs" src="img/inv_potion_25.jpg"/>
+        Spell Power Buffs
+        <a data-toggle="collapse" href="#spell-power">
+         ▼
+        </a>
+        <ul class="collapse sub-section" id="spell-power">
+         <li>
+          <input id="spell-17539" type="checkbox"/>
+          <a data-info="" href="https://classic.wowhead.com/item=13454/greater-arcane-elixir">
+           强效奥法药剂
+          </a>
+          <label for="spell-17539">
+           强效奥法药剂
+          </label>
+         </li>
+         <li>
+          <input id="spell-11474" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=9264/elixir-of-shadow-power">
+           暗影之力药剂
+          </a>
+          <label for="spell-11474">
+           暗影强化
+          </label>
+         </li>
+         <li>
+          <input id="spell-26276" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=21546/elixir-of-greater-firepower">
+           强效火力药剂
+          </a>
+          <label for="spell-26276">
+           强效火力
+          </label>
+         </li>
+         <li>
+          <input id="spell-21920" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=17708/elixir-of-frost-power">
+           冰霜之力药剂
+          </a>
+          <label for="spell-21920">
+           冰霜强化
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <div>
+        <input id="spell-24363" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=20007/mageblood-potion">
+         魔血药水
+        </a>
+        <label for="spell-24363">
+         法力回复
+        </label>
+       </div>
+       <div>
+        <input id="spell-3593" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=3825/elixir-of-fortitude">
+         坚韧药剂
+        </a>
+        <label for="spell-3593">
+         生命 II
+        </label>
+       </div>
+       <!--Armor Consumable-->
+       <div>
+        <input id="spell-11348" type="checkbox"/>
+        <img alt="Long-term Armor" src="img/inv_potion_66.jpg"/>
+        <label for="spell-11348">
+         强效护甲
+        </label>
+        <a data-toggle="collapse" href="#armor-consumable">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="armor-consumable">
+         <li>
+          <a href="https://classic.wowhead.com/item=13445/elixir-of-superior-defense">
+           超强防御药剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=8951/elixir-of-greater-defense">
+           强效防御药剂
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=10305/scroll-of-protection-iv">
+           保护卷轴 IV
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=11564/crystal-ward">
+           防御水晶
+          </a>
+          <small>
+           On the secondary consumable cooldown.
+          </small>
+         </li>
+        </ul>
+       </div>
+       <!--Health Regeneration-->
+       <div>
+        <input id="spell-24361" type="checkbox"/>
+        <img alt="Health Regeneration" src="img/inv_potion_80.jpg"/>
+        <label for="spell-24361">
+         回复
+        </label>
+        <a data-toggle="collapse" href="#health-regeneration">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="health-regeneration">
+         <li>
+          <a href="https://classic.wowhead.com/item=20004/major-trolls-blood-potion">
+           特效巨魔之血药水
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=3826/mighty-trolls-blood-potion">
+           超强巨魔之血药水
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=3388/strong-trolls-blood-potion">
+           强力巨魔之血药水
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=3382/weak-trolls-blood-potion">
+           弱效巨魔之血药水
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div>
+        <input id="spell-11371" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=9088/gift-of-arthas">
+         阿尔萨斯的赐福
+        </a>
+        <label for="spell-11371">
+         阿尔萨斯的礼物
+        </label>
+       </div>
+       <!-- Juju Resistance -->
+       <div>
+        <input id="spell-16326" type="checkbox"/>
+        <img alt="Juju Resistance" src="img/inv_misc_monsterscales_15.jpg"/>
+        <label for="spell-16326">
+         魂能之灰
+        </label>
+        <a data-toggle="collapse" href="#juju-resistance">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="juju-resistance">
+         <li>
+          <a href="https://classic.wowhead.com/item=12455/juju-ember">
+           魂能之灰
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=12457/juju-chill">
+           魂能之寒
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div>
+        <input id="spell-15279" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=11567/crystal-spire">
+         尖刺水晶
+        </a>
+        <label for="spell-15279">
+         尖刺水晶
+        </label>
+        <a data-toggle="collapse" href="#crystal-spire">
+         <img alt="More Info" data-info="" src="img/Information.png"/>
+        </a>
+        <small class="collapse mb-sm-3" id="crystal-spire">
+         Does not stack with
+         <a data-wowhead="buff" href="https://classic.wowhead.com/spell=9910/thorns">
+          Thorns
+         </a>
+         .
+        </small>
+       </div>
+       <div>
+        <input id="spell-5665" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=5206/bogling-root">
+         沼精之根
+        </a>
+        <label for="spell-5665">
+         沼精之怒
+        </label>
+       </div>
+       <!--Elemental Absorption-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Members of this group stack.&lt;br /&gt;Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Elemental Absorption" src="img/inv_potion_24.jpg"/>
+        Elemental Absorption
+        <a data-toggle="collapse" href="#elemental-absorption">
+         ▼
+        </a>
+        <ul class="collapse sub-section" id="elemental-absorption">
+         <li>
+          <input id="spell-17549" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=13461/greater-arcane-protection-potion">
+           强效奥术防护药水
+          </a>
+          <label for="spell-17549">
+           奥术防护
+          </label>
+         </li>
+         <li>
+          <input id="spell-17543" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=13457/greater-fire-protection-potion">
+           强效火焰防护药水
+          </a>
+          <label for="spell-17543">
+           防护火焰
+          </label>
+         </li>
+         <li>
+          <input id="spell-17544" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=13456/greater-frost-protection-potion">
+           强效冰霜防护药水
+          </a>
+          <label for="spell-17544">
+           防护冰霜
+          </label>
+         </li>
+         <li>
+          <input id="spell-17546" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=13458/greater-nature-protection-potion">
+           强效自然防护药水
+          </a>
+          <label for="spell-17546">
+           防护自然
+          </label>
+         </li>
+         <li>
+          <input id="spell-17548" type="checkbox"/>
+          <a href="https://classic.wowhead.com/item=13459/greater-shadow-protection-potion">
+           强效暗影防护药水
+          </a>
+          <label for="spell-17548">
+           防护暗影
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <div>
+        <input id="spell-18125" type="checkbox"/>
+        <img alt="Food Buff" src="img/spell_misc_food.jpg"/>
+        <label for="spell-18125">
+         神圣太阳果
+        </label>
+       </div>
+       <div>
+        <input id="spell-25804" type="checkbox"/>
+        <img alt="Alcohol" src="img/inv_drink_04.jpg"/>
+        <label for="spell-25804">
+         黑标美味朗姆酒
+        </label>
+        <a data-toggle="collapse" href="#alcohol">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="alcohol">
+         <li>
+          <a href="https://classic.wowhead.com/item=18284/kreegs-stout-beatdown">
+           克雷格的烈酒
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=21151/rumsey-rum-black-label">
+           黑标美味朗姆酒
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=18269/gordok-green-grog">
+           戈多克绿酒
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div>
+        <input id="spell-17528" type="checkbox"/>
+        <img alt="Primary Potion" src="img/inv_potion_41.jpg"/>
+        <label for="spell-17528">
+         强效怒气
+        </label>
+        <a data-toggle="collapse" href="#primary-potion">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="primary-potion">
+         <li>
+          <a href="https://classic.wowhead.com/item=9036/magic-resistance-potion">
+           抗魔药水
+          </a>
+          <small>
+           Does not stack with
+           <a class="small-inline" data-wowhead="buff" href="https://classic.wowhead.com/spell=21850/gift-of-the-wild">
+            Gift of the Wild
+           </a>
+          </small>
+          <small class="indent">
+           or
+           <a class="small-inline" data-wowhead="buff" href="https://classic.wowhead.com/spell=10535/fire-resistance">
+            player resistance buffs.
+           </a>
+          </small>
+          <a href="https://classic.wowhead.com/item=9030/restorative-potion">
+           滋补药剂
+          </a>
+          <a href="https://classic.wowhead.com/item=13442/mighty-rage-potion">
+           强效怒气药水
+          </a>
+          <a href="https://classic.wowhead.com/item=3387/limited-invulnerability-potion">
+           有限无敌药水
+          </a>
+          <a href="https://classic.wowhead.com/item=20008/living-action-potion">
+           活力行动药水
+          </a>
+          <a href="https://classic.wowhead.com/item=12190/dreamless-sleep-potion">
+           昏睡药水
+          </a>
+          <a href="https://classic.wowhead.com/item=5634/free-action-potion">
+           自由行动药剂
+          </a>
+          <a href="https://classic.wowhead.com/item=2459/swiftness-potion">
+           迅捷药水
+          </a>
+          <a href="https://classic.wowhead.com/item=13455/greater-stoneshield-potion">
+           强效石盾药水
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div>
+        <input id="spell-17540" type="checkbox"/>
+        <img alt="Additional Primary Potion" src="img/inv_potion_69.jpg"/>
+        <label for="spell-17540">
+         强效石盾
+        </label>
+        <a data-toggle="collapse" href="#additional-primary-potion">
+         <img alt="More Info" data-info="" src="img/Information.png"/>
+        </a>
+        <div class="collapse mb-sm-3" id="additional-primary-potion">
+         <small class="indent">
+          Primary potion cooldowns elapse while logged off.
+         </small>
+         <small class="indent">
+          This trick can let you stack primary potions
+         </small>
+         <small class="indent">
+          despite their cooldown.
+         </small>
+        </div>
+       </div>
+       <div>
+        <input id="spell-11350" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=8956/oil-of-immolation">
+         献祭之油
+        </a>
+        <label for="spell-11350">
+         火焰之盾
+        </label>
+       </div>
+       <div>
+        <input id="spell-10592" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=10592/catseye-elixir">
+         猫眼药剂
+        </a>
+        <label for="spell-10592">
+         zzOLDLightning Shock
+        </label>
+       </div>
+       <div>
+        <input id="spell-7396" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=7396/fishliver-oil">
+         <img alt="Fishliver Oil" src="img/inv_misc_fish_06.jpg"/>
+        </a>
+        <label for="spell-7396">
+         鱼肝油
+        </label>
+       </div>
+       <div>
+        <input id="spell-15852" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=12217/dragonbreath-chili">
+         龙息红椒
+        </a>
+        <label for="spell-15852">
+         龙息红椒
+        </label>
+        <a data-toggle="collapse" href="#dragonbreath-chili">
+         <img alt="More Info" data-info="" src="img/Information.png"/>
+        </a>
+        <small class="collapse mb-sm-3" id="dragonbreath-chili">
+         Stacks with food buff, but only if
+         <br/>
+         you eat chili second.
+        </small>
+       </div>
+       <div>
+        <input id="spell-15851" type="checkbox"/>
+        <a href="https://classic.wowhead.com/spell=15852/dragonbreath-chili">
+         <img alt="Dragonbreath Chili Proc" src="img/spell_fire_incinerate.jpg"/>
+        </a>
+        <label for="spell-15851">
+         龙息红椒
+        </label>
+       </div>
+       <div>
+        <input id="spell-18610" type="checkbox"/>
+        <a href="https://classic.wowhead.com/item=14530/heavy-runecloth-bandage">
+         厚符文布绷带
+        </a>
+        <label for="spell-18610">
+         急救
+        </label>
+       </div>
+       <div>
+        <input id="spell-6657" type="checkbox"/>
+        <img alt="Cosmetic Item" src="img/inv_misc_monsterhead_04.jpg"/>
+        <label for="spell-6657">
+         召唤毒蛇信使
+        </label>
+        <a data-toggle="collapse" href="#cosmetics">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="cosmetics">
+         <li>
+          <a href="https://classic.wowhead.com/item=6657/savory-deviate-delight">
+           美味风蛇
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=5462/dartols-rod-of-transformation">
+           达图尔的变形魔棒
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=18258/gordok-ogre-suit">
+           戈多克食人魔装
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=1973/orb-of-deception">
+           欺诈宝珠
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=20413/hallowed-wand-random">
+           万圣节魔棒 - 随机
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/item=21213/preserved-holly">
+           砍下来的圣诞树
+          </a>
+         </li>
+         <li>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=21848/snowman">
+           <img alt="Winter Veil Disguise Kit" src="img/spell_frost_frostward.jpg"/>
+           Winter Veil Disguise Kit
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Members of this group stack.&lt;br /&gt;Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Noggenfogger Effects" src="img/inv_potion_83.jpg"/>
+        Noggenfogger Elixir
+        <a data-toggle="collapse" href="#noggenfogger">
+         ▼
+        </a>
+        <ul class="collapse sub-section" id="noggenfogger">
+         <li>
+          <input id="spell-16593" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16593/noggenfogger-elixir">
+           <img alt="Slow Fall" src="img/spell_magic_featherfall.jpg"/>
+          </a>
+          <label for="spell-16593">
+           诺格弗格药剂
+          </label>
+         </li>
+         <li>
+          <input id="spell-16591" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16591/noggenfogger-elixir">
+           <img alt="Underwater Breathing" src="img/spell_shadow_raisedead.jpg"/>
+          </a>
+          <label for="spell-16591">
+           诺格弗格药剂
+          </label>
+         </li>
+         <li>
+          <input id="spell-16595" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16595/noggenfogger-elixir">
+           <img alt="Shrink" src="img/spell_shadow_grimward.jpg"/>
+          </a>
+          <label for="spell-16595">
+           诺格弗格药剂
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="col-lg">
+     <!--Raid Buffs-->
+     <div class="border bc-cell" data-primary-category="">
+      <div class="bc-cell-header m-sm-1">
+       <span class="h4">
+        Raid Buffs
+        <span data-category-count="">
+        </span>
+       </span>
+       <button aria-expanded="true" class="btn-sm btn-secondary d-lg-none float-right ml-3" data-target="#raid-buffs" data-toggle="collapse">
+        <span class="collapse-icon-open">
+         –
+        </span>
+        <span class="collapse-icon-closed">
+         +
+        </span>
+       </button>
+       <button class="ml-3 btn-sm btn-secondary float-right" data-clear-button="">
+        Clear
+       </button>
+      </div>
+      <div class="collapse show" id="raid-buffs">
+       <div>
+        <input id="spell-11551" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=11551/battle-shout">
+         <img alt="Battle Shout" src="img/ability_warrior_battleshout.jpg"/>
+        </a>
+        <label class="warrior-color" for="spell-11551">
+         战斗怒吼
+        </label>
+       </div>
+       <!--Druid Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Druid Buffs" src="img/classicon_druid.jpg"/>
+        <span class="druid-color">
+         Druid Buffs
+        </span>
+        <a data-toggle="collapse" href="#druid-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="druid-buffs">
+         <li>
+          <input id="spell-21850" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=21850/gift-of-the-wild">
+           <img alt="Gift of the Wild" src="img/spell_nature_regeneration.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-21850">
+           野性赐福
+          </label>
+         </li>
+         <li>
+          <input id="spell-24932" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=24932/leader-of-the-pack">
+           <img alt="Leader of the Pack" src="img/spell_nature_unyeildingstamina.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-24932">
+           兽群领袖
+          </label>
+         </li>
+         <li>
+          <input id="spell-24907" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=24907/moonkin-aura">
+           <img alt="Moonkin Aura" src="img/spell_nature_moonglow.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-24907">
+           枭兽光环
+          </label>
+         </li>
+         <li>
+          <input id="spell-9910" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=9910/thorns">
+           <img alt="Thorns" src="img/spell_nature_thorns.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-9910">
+           荆棘术
+          </label>
+          <a data-toggle="collapse" href="#thorns">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="thorns">
+           Does not stack with
+           <a data-info="" href="https://classic.wowhead.com/item=11567/crystal-spire">
+            尖刺水晶
+           </a>
+           .
+          </small>
+         </li>
+         <li>
+          <input id="spell-9841" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=9841/rejuvenation">
+           <img alt="Rejuvenation" src="img/spell_nature_rejuvenation.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-9841">
+           回春术
+          </label>
+         </li>
+         <li>
+          <input id="spell-9858" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=9858/regrowth">
+           <img alt="Regrowth" src="img/spell_nature_resistnature.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-9858">
+           愈合
+          </label>
+         </li>
+         <li>
+          <input id="spell-9863" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=9863/tranquility">
+           <img alt="Tranquility" src="img/spell_nature_tranquility.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-9863">
+           宁静
+          </label>
+         </li>
+         <li>
+          <input id="spell-29166" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29166/innervate">
+           <img alt="Innervate" src="img/spell_nature_lightning.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-29166">
+           激活
+          </label>
+         </li>
+         <li>
+          <input id="spell-2893" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=2893/abolish-poison">
+           <img alt="Abolish Poison" src="img/spell_nature_nullifypoison_02.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-2893">
+           驱毒术
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Hunter Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Hunter Buffs" src="img/classicon_hunter.jpg"/>
+        <span class="hunter-color">
+         Hunter Buffs
+        </span>
+        <a data-toggle="collapse" href="#hunter-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="hunter-buffs">
+         <li>
+          <input id="spell-20190" type="checkbox"/>
+          <img alt="Hunter Aspect" src="img/spell_nature_protectionformnature.jpg"/>
+          <label class="hunter-color" for="spell-20190">
+           野性守护
+          </label>
+          <a data-toggle="collapse" href="#hunter-aspect">
+           ▼
+          </a>
+          <ul class="collapse mb-sm-3" id="hunter-aspect">
+           <li>
+            <a class="hunter-color" href="https://classic.wowhead.com/spell=20190/aspect-of-the-wild">
+             <img alt="Aspect of the Wild" src="img/spell_nature_protectionformnature.jpg"/>
+             Aspect of the Wild
+            </a>
+           </li>
+           <li>
+            <a class="hunter-color" href="https://classic.wowhead.com/spell=13159/aspect-of-the-pack">
+             <img alt="Aspect of the Pack" src="img/ability_mount_whitetiger.jpg"/>
+             Aspect of the Pack
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-20906" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20906/trueshot-aura">
+           <img alt="Trueshot Aura" src="img/ability_trueshot.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-20906">
+           强击光环
+          </label>
+         </li>
+         <li>
+          <input id="spell-24597" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=24597/furious-howl">
+           <img alt="Furious Howl" src="img/ability_hunter_pet_wolf.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-24597">
+           狂怒之嚎
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Mage Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Mage Buffs" src="img/classicon_mage.jpg"/>
+        <span class="mage-color">
+         Mage Buffs
+        </span>
+        <a data-toggle="collapse" href="#mage-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="mage-buffs">
+         <li>
+          <input id="spell-23028" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23028/arcane-brilliance">
+           <img alt="Arcane Brilliance" src="img/spell_holy_arcaneintellect.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-23028">
+           奥术光辉
+          </label>
+         </li>
+         <li>
+          <input id="spell-10170" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10170/amplify-magic">
+           <img alt="Amplify Magic" src="img/spell_holy_flashheal.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-10170">
+           魔法增效
+          </label>
+         </li>
+         <li>
+          <input id="spell-10174" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10174/dampen-magic">
+           <img alt="Dampen Magic" src="img/spell_nature_abolishmagic.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-10174">
+           魔法抑制
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Priest Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Priest Buffs" src="img/classicon_priest.jpg"/>
+        <span class="priest-color">
+         Priest Buffs
+        </span>
+        <a data-toggle="collapse" href="#priest-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="priest-buffs">
+         <li>
+          <input id="spell-21564" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=21564/prayer-of-fortitude">
+           <img alt="Prayer of Fortitude" src="img/spell_holy_prayeroffortitude.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-21564">
+           坚韧祷言
+          </label>
+         </li>
+         <li>
+          <input id="spell-27681" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27681/prayer-of-spirit">
+           <img alt="Prayer of Spirit" src="img/spell_holy_prayerofspirit.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-27681">
+           精神祷言
+          </label>
+         </li>
+         <li>
+          <input id="spell-10958" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10958/shadow-protection">
+           <img alt="Shadow Protection" src="img/spell_shadow_antishadow.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-10958">
+           防护暗影
+          </label>
+         </li>
+         <li>
+          <input id="spell-10060" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10060/power-infusion">
+           <img alt="Power Infusion" src="img/spell_holy_powerinfusion.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-10060">
+           能量灌注
+          </label>
+         </li>
+         <li>
+          <input id="spell-6346" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=6346/fear-ward">
+           <img alt="Fear Ward" src="img/spell_holy_excorcism.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-6346">
+           防护恐惧结界
+          </label>
+         </li>
+         <li>
+          <input id="spell-10901" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10901/power-word-shield">
+           <img alt="Power Word: Shield" src="img/spell_holy_powerwordshield.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-10901">
+           真言术：盾
+          </label>
+         </li>
+         <li>
+          <input id="spell-10929" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10929/renew">
+           <img alt="Renew" src="img/spell_holy_renew.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-10929">
+           恢复
+          </label>
+         </li>
+         <li>
+          <input id="spell-27874" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27874/lightwell-renew">
+           <img alt="Lightwell Renew" src="img/spell_holy_summonlightwell.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-27874">
+           光明之泉回复
+          </label>
+         </li>
+         <li>
+          <input id="spell-552" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=552/abolish-disease">
+           <img alt="Abolish Disease" src="img/spell_nature_nullifydisease.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-552">
+           驱除疾病
+          </label>
+         </li>
+         <li>
+          <input id="spell-22010" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22009/greater-heal">
+           <img alt="T2 8pc Proc (gheal renew)" src="img/inv_gauntlets_14.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-22010">
+           强效治疗恢复
+          </label>
+          <a data-toggle="collapse" href="#transcendence">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="transcendence">
+           Stacks with
+           <a data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=10929/renew">
+            Renew.
+           </a>
+          </small>
+         </li>
+         <li>
+          <input id="spell-28810" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=28810/armor-of-faith">
+           <img alt="T2 8pc Proc (gheal renew)" src="img/classic_spell_holy_blessingofprotection.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-28810">
+           信仰
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Warlock Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Warlock Buffs" src="img/classicon_warlock.jpg"/>
+        <span class="warlock-color">
+         Warlock Buffs
+        </span>
+        <a data-toggle="collapse" href="#warlock-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="warlock-buffs">
+         <li>
+          <input id="spell-11767" type="checkbox"/>
+          <img alt="Warlock Pet Aura" data-info="" src="img/spell_shadow_bloodboil.jpg"/>
+          <label class="warlock-color" for="spell-11767">
+           血之契印
+          </label>
+          <a data-info="" data-toggle="collapse" href="#warlock-pet-aura">
+           ▼
+          </a>
+          <ul class="collapse mb-sm-3" id="warlock-pet-aura">
+           <li>
+            <a class="warlock-color" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=11767/blood-pact">
+             <img alt="Blood Pact" src="img/spell_shadow_bloodboil.jpg"/>
+             Blood Pact
+            </a>
+           </li>
+           <li>
+            <a class="warlock-color" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=19480/paranoia">
+             <img alt="Paranoia" src="img/spell_shadow_auraofdarkness.jpg"/>
+             Paranoia
+            </a>
+           </li>
+           <li class="hidden">
+            <a title="Warlock Pet Aura">
+             <img alt="Blood Pact" src="img/spell_shadow_bloodboil.jpg"/>
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-11771" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=11771/fire-shield">
+           <img alt="Fire Shield" src="img/spell_fire_firearmor.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-11771">
+           火焰之盾
+          </label>
+         </li>
+         <li>
+          <input id="spell-5697" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=5697/unending-breath">
+           <img alt="Unending Breath" src="img/spell_shadow_demonbreath.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-5697">
+           魔息术
+          </label>
+         </li>
+         <li>
+          <input id="spell-11743" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=11743/detect-greater-invisibility">
+           <img alt="Detect Invisibility" src="img/spell_shadow_detectinvisibility.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-11743">
+           侦测强效隐形
+          </label>
+         </li>
+         <li>
+          <input id="spell-20765" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20765/soulstone-resurrection">
+           <img alt="Soulstone Resurrection" src="img/spell_shadow_soulgem.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-20765">
+           灵魂石复活
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Inspiration-->
+       <div>
+        <input id="spell-15359" type="checkbox"/>
+        <img alt="Armor Buff" src="img/inv_shield_06.jpg"/>
+        <label for="spell-15359">
+         灵感
+        </label>
+        <a data-toggle="collapse" href="#armor-buff">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="armor-buff">
+         <li>
+          <a class="priest-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=15359/inspiration">
+           <img alt="Inspiration" src="img/inv_shield_06.jpg"/>
+           Inspiration
+          </a>
+         </li>
+         <li>
+          <a class="shaman-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=16237/ancestral-fortitude">
+           <img alt="Ancestral Fortitude" src="img/spell_nature_undyingstrength.jpg"/>
+           Ancestral Fortitude
+          </a>
+         </li>
+        </ul>
+       </div>
+       <!--Shaman Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Shaman Buffs" src="img/classicon_shaman.jpg"/>
+        <span class="shaman-color">
+         Shaman Buffs
+        </span>
+        <a data-toggle="collapse" href="#shaman-buffs">
+         ▼
+        </a>
+        <ul class="collapse sub-section" id="shaman-buffs">
+         <li>
+          <input id="spell-29203" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29203/healing-way">
+           <img alt="Healing Way" src="img/classic_spell_nature_healingway.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-29203">
+           治疗之道
+          </label>
+         </li>
+         <li>
+          <input id="spell-23551" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=23551/lightning-shield">
+           <img alt="8pc T2 proc (Lightning Shield)" src="img/inv_helmet_69.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-23551">
+           闪电护盾
+          </label>
+         </li>
+         <li>
+          <input id="spell-28823" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=28823/totemic-power">
+           <img alt="6pc T3 proc" src="img/inv_jewelry_ring_51naxxramas.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-28823">
+           图腾之力
+          </label>
+          <a data-info="" data-toggle="collapse" href="#totemic-power">
+           ▼
+          </a>
+          <ul class="collapse mb-sm-3" id="totemic-power">
+           <li>
+            <a class="shaman-color small-inline" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=28824/totemic-power">
+             <img alt="Mana Regen" src="img/spell_holy_spiritualguidence.jpg"/>
+             Mana Regen
+            </a>
+            <img alt="Given to Shaman" data-info="" src="img/classicon_shaman.jpg"/>
+            <img alt="Given to Priests" data-info="" src="img/classicon_priest.jpg"/>
+            <img alt="Given to Druids" data-info="" src="img/classicon_druid.jpg"/>
+           </li>
+           <li>
+            <a class="shaman-color small-inline" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=28826/totemic-power">
+             <img alt="Attack Power" src="img/spell_holy_devotion.jpg"/>
+             Attack Power
+            </a>
+            <img alt="Given to Rogues" data-info="" src="img/classicon_rogue.jpg"/>
+            <img alt="Given to Hunters" data-info="" src="img/classicon_hunter.jpg"/>
+           </li>
+           <li>
+            <a class="shaman-color small-inline" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=28825/totemic-power">
+             <img alt="Spell Damage" src="img/spell_holy_holynova.jpg"/>
+             Spell Damage
+            </a>
+            <img alt="Given to Mages" data-info="" src="img/classicon_mage.jpg"/>
+            <img alt="Given to Warlocks" data-info="" src="img/classicon_warlock.jpg"/>
+           </li>
+           <li>
+            <a class="shaman-color small-inline" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=28827/totemic-power">
+             <img alt="Armor" src="img/spell_magic_magearmor.jpg"/>
+             Armor
+            </a>
+            <img alt="Given to Warriors" data-info="" src="img/classicon_warrior.jpg"/>
+           </li>
+          </ul>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Shaman Totems-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Shaman Totems" src="img/spell_totem_wardofdraining.jpg"/>
+        <span class="shaman-color">
+         Shaman Totems
+        </span>
+        <a data-toggle="collapse" href="#shaman-totems">
+         ▼
+        </a>
+        <ul class="collapse sub-section" id="shaman-totems">
+         <li>
+          <input id="spell-10441" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10441/strength-of-earth">
+           <img alt="Strength of Earth" src="img/spell_nature_earthbindtotem.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-10441">
+           大地之力
+          </label>
+         </li>
+         <li>
+          <input id="spell-10405" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10405/stoneskin">
+           <img alt="Stoneskin" src="img/spell_nature_stoneskintotem.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-10405">
+           石肤术
+          </label>
+         </li>
+         <li>
+          <input id="spell-10477" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10477/frost-resistance">
+           <img alt="Frost Resistance" src="img/spell_frostresistancetotem_01.jpg"/>
+          </a>
+          <label class="fire-totem-color" for="spell-10477">
+           冰霜抗性
+          </label>
+         </li>
+         <li>
+          <input id="spell-25360" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25360/grace-of-air">
+           <img alt="Grace of Air" src="img/spell_nature_invisibilitytotem.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-25360">
+           风之优雅
+          </label>
+         </li>
+         <li>
+          <input id="spell-8178" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=8178/grounding-totem-effect">
+           <img alt="Grounding" src="img/spell_nature_groundingtotem.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-8178">
+           根基图腾效果
+          </label>
+         </li>
+         <li>
+          <input id="spell-10599" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10599/nature-resistance">
+           <img alt="Nature Resistance" src="img/spell_nature_natureresistancetotem.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-10599">
+           自然抗性
+          </label>
+         </li>
+         <li>
+          <input id="spell-25909" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25909/tranquil-air">
+           <img alt="Tranquil Air" src="img/spell_nature_brilliance.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-25909">
+           宁静之风
+          </label>
+         </li>
+         <li>
+          <input id="spell-15110" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=15110/windwall">
+           <img alt="Windwall" src="img/spell_nature_earthbind.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-15110">
+           风墙
+          </label>
+         </li>
+         <li>
+          <input id="spell-10535" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10535/fire-resistance">
+           <img alt="Fire Resistance" src="img/spell_fireresistancetotem_01.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-10535">
+           火焰抗性
+          </label>
+         </li>
+         <li>
+          <input id="spell-10461" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10461/healing-stream">
+           <img alt="Healing Stream" src="img/inv_spear_04.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-10461">
+           治疗之泉
+          </label>
+         </li>
+         <li>
+          <input id="spell-10494" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10494/mana-spring">
+           <img alt="Mana Spring" src="img/spell_nature_manaregentotem.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-10494">
+           法力之泉
+          </label>
+         </li>
+         <li>
+          <input id="spell-17360" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=17360/mana-tide">
+           <img alt="Mana Tide" src="img/spell_frost_summonwaterelemental.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-17360">
+           法力之潮
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Paladin Auras-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Paladin Auras" src="img/spell_holy_devotionaura.jpg"/>
+        <span class="paladin-color">
+         Paladin Auras
+        </span>
+        <a data-toggle="collapse" href="#paladin-auras">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="paladin-auras">
+         <li>
+          <input id="spell-19746" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19746/concentration-aura">
+           <img alt="Concentration" src="img/spell_holy_mindsooth.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-19746">
+           专注光环
+          </label>
+         </li>
+         <li>
+          <input id="spell-10293" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10293/devotion-aura">
+           <img alt="Devotion" src="img/spell_holy_devotionaura.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-10293">
+           虔诚光环
+          </label>
+         </li>
+         <li>
+          <input id="spell-19900" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19900/fire-resistance-aura">
+           <img alt="Fire Resistance" src="img/spell_fire_sealoffire.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-19900">
+           火焰抗性光环
+          </label>
+         </li>
+         <li>
+          <input id="spell-19898" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19898/frost-resistance-aura">
+           <img alt="Frost Resistance" src="img/spell_frost_wizardmark.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-19898">
+           冰霜抗性光环
+          </label>
+         </li>
+         <li>
+          <input id="spell-10299" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10299/retribution-aura">
+           <img alt="Retribution" src="img/spell_holy_auraoflight.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-10299">
+           惩罚光环
+          </label>
+         </li>
+         <li>
+          <input id="spell-19896" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19896/shadow-resistance-aura">
+           <img alt="Shadow Resistance" src="img/spell_shadow_sealofkings.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-19896">
+           暗影抗性光环
+          </label>
+         </li>
+         <li>
+          <input id="spell-20218" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20218/sanctity-aura">
+           <img alt="Sanctity" src="img/spell_holy_mindvision.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-20218">
+           圣洁光环
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Paladin Blessings-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Paladin Blessings" src="img/spell_magic_greaterblessingofkings.jpg"/>
+        <span class="paladin-color">
+         Paladin Blessings
+        </span>
+        <a data-toggle="collapse" href="#paladin-blessings">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="paladin-blessings">
+         <li>
+          <input id="spell-25898" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25898/greater-blessing-of-kings">
+           <img alt="Kings" src="img/spell_magic_greaterblessingofkings.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-25898">
+           强效王者祝福
+          </label>
+         </li>
+         <li>
+          <input id="spell-25890" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25890/greater-blessing-of-light">
+           <img alt="Light" src="img/spell_holy_greaterblessingoflight.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-25890">
+           强效光明祝福
+          </label>
+         </li>
+         <li>
+          <input id="spell-25916" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25916/greater-blessing-of-might">
+           <img alt="Might" src="img/spell_holy_greaterblessingofkings.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-25916">
+           强效力量祝福
+          </label>
+         </li>
+         <li>
+          <input id="spell-25895" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25895/greater-blessing-of-salvation">
+           <img alt="Salvation" src="img/spell_holy_greaterblessingofsalvation.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-25895">
+           强效拯救祝福
+          </label>
+         </li>
+         <li>
+          <input id="spell-25899" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25899/greater-blessing-of-sanctuary">
+           <img alt="Sanctuary" src="img/spell_holy_greaterblessingofsanctuary.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-25899">
+           强效庇护祝福
+          </label>
+         </li>
+         <li>
+          <input id="spell-25918" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25918/greater-blessing-of-wisdom">
+           <img alt="Wisdom" src="img/spell_holy_greaterblessingofwisdom.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-25918">
+           强效智慧祝福
+          </label>
+         </li>
+         <li>
+          <input id="spell-1044" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1044/blessing-of-freedom">
+           <img alt="Freedom" src="img/spell_holy_sealofvalor.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-1044">
+           自由祝福
+          </label>
+         </li>
+         <li>
+          <input id="spell-20729" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20729/blessing-of-sacrifice">
+           <img alt="Sacrifice" src="img/spell_holy_sealofsacrifice.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-20729">
+           牺牲祝福
+          </label>
+         </li>
+         <li>
+          <input id="spell-5599" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=5599/blessing-of-protection">
+           <img alt="Protection" src="img/spell_holy_sealofprotection.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-5599">
+           保护祝福
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <!--Paladin Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Paladin Buffs" src="img/spell_holy_layonhands.jpg"/>
+        <span class="paladin-color">
+         Paladin Buffs
+        </span>
+        <a data-toggle="collapse" href="#paladin-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="paladin-buffs">
+         <li>
+          <input id="spell-20236" type="checkbox"/>
+          <a data-wowhead="buff&amp;lvl=55" href="https://classic.wowhead.com/spell=20236/lay-on-hands">
+           <img alt="Improved Lay On Hands" src="img/spell_holy_layonhands.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-20236">
+           圣疗术
+          </label>
+         </li>
+         <li>
+          <input id="spell-19752" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19752/divine-intervention">
+           <img alt="Divine Intervention" src="img/spell_nature_timestop.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-19752">
+           神圣干涉
+          </label>
+         </li>
+         <li>
+          <input id="spell-28789" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=28789/holy-power">
+           <img alt="6pc T3 proc" src="img/inv_jewelry_ring_51naxxramas.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-28789">
+           神圣之力
+          </label>
+          <a data-info="" data-toggle="collapse" href="#holy-power">
+           ▼
+          </a>
+          <ul class="collapse mb-sm-3" id="holy-power">
+           <li>
+            <a class="paladin-color small-inline" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=28795/holy-power">
+             <img alt="Mana Regen" src="img/spell_holy_spiritualguidence.jpg"/>
+             Mana Regen
+            </a>
+            <img alt="Given to Priests" data-info="" src="img/classicon_priest.jpg"/>
+            <img alt="Given to Druids" data-info="" src="img/classicon_druid.jpg"/>
+            <img alt="Given to Paladins" data-info="" src="img/classicon_paladin.jpg"/>
+           </li>
+           <li>
+            <a class="paladin-color small-inline" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=28791/holy-power">
+             <img alt="Attack Power" src="img/spell_holy_devotion.jpg"/>
+             Attack Power
+            </a>
+            <img alt="Given to Rogues" data-info="" src="img/classicon_rogue.jpg"/>
+            <img alt="Given to Hunters" data-info="" src="img/classicon_hunter.jpg"/>
+           </li>
+           <li>
+            <a class="paladin-color small-inline" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=28793/holy-power">
+             <img alt="Spell Damage" src="img/spell_holy_holynova.jpg"/>
+             Spell Damage
+            </a>
+            <img alt="Given to Mages" data-info="" src="img/classicon_mage.jpg"/>
+            <img alt="Given to Warlocks" data-info="" src="img/classicon_warlock.jpg"/>
+           </li>
+           <li>
+            <a class="paladin-color small-inline" data-info="" data-wowhead="buff" href="https://classic.wowhead.com/spell=28790/holy-power">
+             <img alt="Armor" src="img/spell_magic_magearmor.jpg"/>
+             Armor
+            </a>
+            <img alt="Given to Warriors" data-info="" src="img/classicon_warrior.jpg"/>
+           </li>
+          </ul>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <div>
+        <input id="spell-7353" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=7353/cozy-fire">
+         <img alt="Cozy Fire" src="img/spell_fire_fire.jpg"/>
+        </a>
+        <label for="spell-7353">
+         惬意小火
+        </label>
+       </div>
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Equipment Raid Buffs" src="img/inv_jewelry_talisman_12.jpg"/>
+        Equipment Raid Buffs
+        <a data-toggle="collapse" href="#equipment-raid-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="equipment-raid-buffs">
+         <li>
+          <input id="spell-23060" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23060/battle-squawk">
+           <img alt="Battle Squawk" src="img/inv_misc_birdbeck_01.jpg"/>
+          </a>
+          <label for="spell-23060">
+           作战鸣叫
+          </label>
+          <a data-toggle="collapse" href="#battle-chicken">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse" id="battle-chicken">
+           Caused by use of a
+           <a class="small-inline" data-info="" href="https://classic.wowhead.com/item=10725/gnomish-battle-chicken">
+            侏儒作战小鸡
+           </a>
+           .
+          </small>
+         </li>
+         <li>
+          <input id="spell-18264" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=18264/headmasters-charge">
+           <img alt="Headmaster's Charge" src="img/inv_jewelry_talisman_12.jpg"/>
+          </a>
+          <label for="spell-18264">
+           院长之杖
+          </label>
+         </li>
+         <li>
+          <input id="spell-26467" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=26467/persistent-shield">
+           <img alt="Persistent Shield" src="img/inv_misc_ahnqirajtrinket_06.jpg"/>
+          </a>
+          <label for="spell-26467">
+           持续护盾
+          </label>
+          <a data-toggle="collapse" href="#scarab-brooch">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse" id="scarab-brooch">
+           Granted by use of a
+           <a class="small-inline" href="https://classic.wowhead.com/item=21625/scarab-brooch">
+            甲虫胸针
+           </a>
+           <br/>
+           Unknown if more than one of this buff can exist at once.
+          </small>
+         </li>
+         <li>
+          <input id="spell-18946" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=18946/the-lion-horn-of-stormwind">
+           <img alt="The Lion Horn of Stormwind" src="img/inv_misc_horn_03.jpg"/>
+          </a>
+          <label for="spell-18946">
+           暴风雄狮号角
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Atiesh Party Aura" src="img/inv_staff_medivh.jpg"/>
+        Atiesh Party Aura
+        <a data-toggle="collapse" href="#atiesh">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section" id="atiesh">
+         <li>
+          <input id="spell-28142" type="checkbox"/>
+          <a class="mage-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=28142/power-of-the-guardian">
+           <img alt="Mage Atiesh Buff" src="img/classicon_mage.jpg"/>
+          </a>
+          <label for="spell-28142">
+           守护者的力量
+          </label>
+         </li>
+         <li>
+          <input id="spell-28144" type="checkbox"/>
+          <a class="priest-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=28144/power-of-the-guardian">
+           <img alt="Priest Atiesh Buff" src="img/classicon_priest.jpg"/>
+          </a>
+          <label for="spell-28144">
+           守护者的力量
+          </label>
+         </li>
+         <li>
+          <input id="spell-28145" type="checkbox"/>
+          <a class="druid-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=28145/power-of-the-guardian">
+           <img alt="Druid Atiesh Buff" src="img/classicon_druid.jpg"/>
+          </a>
+          <label for="spell-28145">
+           守护者的力量
+          </label>
+         </li>
+         <li>
+          <input id="spell-28143" type="checkbox"/>
+          <a class="warlock-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=28143/power-of-the-guardian">
+           <img alt="Warlock Atiesh Buff" src="img/classicon_warlock.jpg"/>
+          </a>
+          <label for="spell-28143">
+           守护者的力量
+          </label>
+         </li>
+        </ul>
+        <div class="buff-summary">
+        </div>
+       </div>
+      </div>
+     </div>
+     <!--Personal Buffs-->
+     <div class="border bc-cell" data-primary-category="" id="personal-buffs">
+      <div class="bc-cell-header m-sm-1">
+       <span class="h4">
+        Personal Buffs
+        <span data-category-count="">
+        </span>
+       </span>
+       <button aria-expanded="true" class="btn-sm btn-secondary d-lg-none float-right ml-3" data-target="#personal-buffs-collapse-section" data-toggle="collapse">
+        <span class="collapse-icon-open">
+         –
+        </span>
+        <span class="collapse-icon-closed">
+         +
+        </span>
+       </button>
+       <button class="ml-3 btn-sm btn-secondary float-right" data-clear-button="">
+        Clear
+       </button>
+      </div>
+      <div class="collapse show" id="personal-buffs-collapse-section">
+       <!--Racial Buffs-->
+       <div>
+        <input id="spell-20572" type="checkbox"/>
+        <img alt="Racial Buff" src="img/racial_orc_berserkerstrength.jpg"/>
+        <label for="spell-20572">
+         血性狂暴
+        </label>
+        <a data-toggle="collapse" href="#racial-buff">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="racial-buff">
+         <li>
+          <a href="https://classic.wowhead.com/spell=20572/blood-fury">
+           <img alt="Blood Fury" src="img/racial_orc_berserkerstrength.jpg"/>
+           Blood Fury
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=20554/berserking">
+           <img alt="Berserking" src="img/racial_troll_berserk.jpg"/>
+           Berserking
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=7744/will-of-the-forsaken">
+           <img alt="Will of the Forsaken" src="img/spell_shadow_raisedead.jpg"/>
+           Will of the Forsaken
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=20580/shadowmeld">
+           <img alt="Shadowmeld" src="img/ability_ambush.jpg"/>
+           Shadowmeld
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=20594/stoneform">
+           <img alt="Stoneform" src="img/spell_shadow_unholystrength.jpg"/>
+           Stoneform
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=20600/perception">
+           <img alt="Perception" src="img/spell_nature_sleep.jpg"/>
+           Perception
+          </a>
+         </li>
+        </ul>
+       </div>
+       <!--Tracking-->
+       <div>
+        <input id="spell-1494" type="checkbox"/>
+        <img alt="Tracking" src="img/ability_tracking.jpg"/>
+        <label for="spell-1494">
+         追踪野兽
+        </label>
+        <a data-toggle="collapse" href="#tracking">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3" id="tracking">
+         <li>
+          <a class="hunter-color" href="https://classic.wowhead.com/spell=1494/track-beasts">
+           <img alt="Track Beasts" src="img/ability_tracking.jpg"/>
+           Track Beasts
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=19883/track-humanoids">
+           <img alt="Track Humanoids" src="img/spell_holy_prayerofhealing.jpg"/>
+           <span class="hunter-color">
+            Track
+           </span>
+           <span class="druid-color">
+            Humanoids
+           </span>
+          </a>
+         </li>
+         <li>
+          <a class="hunter-color" href="https://classic.wowhead.com/spell=19879/track-dragonkin">
+           <img alt="Track Dragonkin" src="img/inv_misc_head_dragon_01.jpg"/>
+           Track Dragonkin
+          </a>
+         </li>
+         <li>
+          <a class="hunter-color" href="https://classic.wowhead.com/spell=19885/track-hidden">
+           <img alt="Track Hidden" src="img/ability_stealth.jpg"/>
+           Track Hidden
+          </a>
+         </li>
+         <li>
+          <a class="hunter-color" href="https://classic.wowhead.com/spell=19884/track-undead">
+           <img alt="Track Undead" src="img/spell_shadow_darksummoning.jpg"/>
+           Track Undead
+          </a>
+         </li>
+         <li>
+          <a class="hunter-color" href="https://classic.wowhead.com/spell=19882/track-giants">
+           <img alt="Track Giants" src="img/ability_racial_avatar.jpg"/>
+           Track Giants
+          </a>
+         </li>
+         <li>
+          <a class="hunter-color" href="https://classic.wowhead.com/spell=19878/track-demons">
+           <img alt="Track Demons" src="img/spell_shadow_summonfelhunter.jpg"/>
+           Track Demons
+          </a>
+         </li>
+         <li>
+          <a class="hunter-color" href="https://classic.wowhead.com/spell=19880/track-elementals">
+           <img alt="Track Elementals" src="img/spell_frost_summonwaterelemental.jpg"/>
+           Track Elementals
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=2383/find-herbs">
+           <img alt="Find Herbs" src="img/inv_misc_flower_02.jpg"/>
+           Find Herbs
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=2580/find-minerals">
+           <img alt="Find Minerals" src="img/spell_nature_earthquake.jpg"/>
+           Find Minerals
+          </a>
+         </li>
+         <li>
+          <a href="https://classic.wowhead.com/spell=2481/find-treasure">
+           <img alt="Find Treasure" src="img/racial_dwarf_findtreasure.jpg"/>
+           Find Treasure
+          </a>
+         </li>
+         <li>
+          <a class="paladin-color" href="https://classic.wowhead.com/spell=5502/sense-undead">
+           <img alt="Sense Undead" src="img/spell_holy_senseundead.jpg"/>
+           Sense Undead
+          </a>
+         </li>
+        </ul>
+       </div>
+       <div>
+        <input id="spell-2479" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=2479/honorless-target">
+         <img alt="Honorless Target" src="img/spell_magic_lesserinvisibilty.jpg"/>
+        </a>
+        <label for="spell-2479">
+         无荣誉目标
+        </label>
+       </div>
+       <div>
+        <input id="spell-24242" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=24242/swift-razzashi-raptor">
+         <img alt="Mount" src="img/ability_mount_raptor.jpg"/>
+        </a>
+        <label for="spell-24242">
+         拉扎什迅猛龙
+        </label>
+       </div>
+       <div>
+        <input id="spell-1131" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1131/food">
+         <img alt="Eating Food" src="img/inv_misc_fork-knife.jpg"/>
+        </a>
+        <label for="spell-1131">
+         进食
+        </label>
+       </div>
+       <div>
+        <input id="spell-8079" type="checkbox"/>
+        <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22734/drink">
+         <img alt="Drinking Water" src="img/inv_drink_18.jpg"/>
+        </a>
+        <label for="spell-8079">
+         zzOLDRough Copper Bomb
+        </label>
+       </div>
+       <!--Warrior Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Warrior Buffs" src="img/classicon_warrior.jpg"/>
+        <span class="warrior-color">
+         Warrior Buffs
+        </span>
+        <a data-toggle="collapse" href="#warrior-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="warrior" data-parent="#personal-buffs" id="warrior-personal-buffs">
+         <li>
+          <input id="spell-71" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=71/defensive-stance">
+           <img alt="Stance" src="img/ability_warrior_defensivestance.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-71">
+           防御姿态
+          </label>
+         </li>
+         <li>
+          <input id="spell-5302" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=5302/defensive-state">
+           <img alt="Defensive State" src="img/ability_defend.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-5302">
+           防御状态
+          </label>
+          <a data-toggle="collapse" href="#defensive-state">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" data-info="" id="defensive-state">
+           Allows
+           <a href="https://classic.wowhead.com/spell=11601/revenge">
+            Revenge
+           </a>
+           . Invisible buff.
+          </small>
+         </li>
+         <li>
+          <input id="spell-14204" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=14204/enrage">
+           <img alt="Enrage" src="img/spell_shadow_unholyfrenzy.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-14204">
+           狂怒
+          </label>
+         </li>
+         <li>
+          <input id="spell-12970" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=12970/flurry">
+           <img alt="Flurry" src="img/ability_ghoulfrenzy.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-12970">
+           乱舞
+          </label>
+         </li>
+         <li>
+          <input id="spell-23888" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23888/bloodthirst">
+           <img alt="Bloodthirst" src="img/spell_nature_bloodlust.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-23888">
+           嗜血
+          </label>
+         </li>
+         <li>
+          <input id="spell-29131" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29131/bloodrage">
+           <img alt="Bloodrage" src="img/ability_racial_bloodrage.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-29131">
+           血性狂暴
+          </label>
+         </li>
+         <li>
+          <input id="spell-18499" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=18499/berserker-rage">
+           <img alt="Berserker Rage" src="img/spell_nature_ancestralguardian.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-18499">
+           狂暴之怒
+          </label>
+         </li>
+         <li>
+          <input id="spell-2565" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=2565/shield-block">
+           <img alt="Shield Block" src="img/ability_defend.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-2565">
+           盾牌格挡
+          </label>
+         </li>
+         <li>
+          <input id="spell-12292" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=12292/sweeping-strikes">
+           <img alt="Sweeping Strikes" src="img/ability_rogue_slicedice.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-12292">
+           横扫攻击
+          </label>
+         </li>
+         <li>
+          <input id="spell-871" type="checkbox"/>
+          <img alt="30 Minute Ability" src="img/ability_warrior_shieldwall.jpg"/>
+          <label class="warrior-color" for="spell-871">
+           盾墙
+          </label>
+          <a data-toggle="collapse" href="#warrior-30-min">
+           ▼
+          </a>
+          <ul class="collapse mb-sm-3" data-info="" id="warrior-30-min">
+           <li>
+            <small>
+             These abilities share a cooldown.
+            </small>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20230/retaliation">
+             <img alt="Retaliation" src="img/ability_warrior_challange.jpg"/>
+             Retaliation
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=871/shield-wall">
+             <img alt="Shield Wall" src="img/ability_warrior_shieldwall.jpg"/>
+             Shield Wall
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1719/recklessness">
+             <img alt="Recklessness" src="img/ability_criticalstrike.jpg"/>
+             Recklessness
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-12976" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=12976/last-stand">
+           <img alt="Last Stand" src="img/spell_holy_ashestoashes.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-12976">
+           破釜沉舟
+          </label>
+         </li>
+         <li>
+          <input id="spell-16491" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16491/blood-craze">
+           <img alt="Blood Craze" src="img/spell_shadow_summonimp.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-16491">
+           血之狂热
+          </label>
+         </li>
+         <li>
+          <input id="spell-21977" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=21890/warriors-wrath">
+           <img alt="5pc T2 Proc" src="img/ability_warrior_savageblow.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-21977">
+           战士之怒
+          </label>
+         </li>
+         <li>
+          <input id="spell-23547" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23547/parry">
+           <img alt="8pc T2 Proc" src="img/ability_parry.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-23547">
+           招架
+          </label>
+         </li>
+         <li>
+          <input id="spell-28846" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=28846/cheat-death">
+           <img alt="8pc T3 Proc" src="img/inv_helmet_58.jpg"/>
+          </a>
+          <label class="warrior-color" for="spell-28846">
+           逃脱死亡
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Druid Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Druid Buffs" src="img/classicon_druid.jpg"/>
+        <span class="druid-color">
+         Druid Buffs
+        </span>
+        <a data-toggle="collapse" href="#druid-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="druid" data-parent="#personal-buffs" id="druid-personal-buffs">
+         <li>
+          <input id="spell-9634" type="checkbox"/>
+          <img alt="Shapeshift Form" src="img/ability_racial_bearform.jpg"/>
+          <label class="druid-color" for="spell-9634">
+           巨熊形态
+          </label>
+          <a data-toggle="collapse" href="#shapeshift-form">
+           ▼
+          </a>
+          <ul class="collapse" data-info="" id="shapeshift-form">
+           <li>
+            <a href="https://classic.wowhead.com/spell=9634/dire-bear-form">
+             <img alt="Shapeshift Form" class="druid-color" src="img/ability_racial_bearform.jpg"/>
+             Dire Bear Form
+            </a>
+           </li>
+           <li>
+            <a href="https://classic.wowhead.com/spell=768/cat-form">
+             <img alt="Shapeshift Form" class="druid-color" src="img/ability_druid_catform.jpg"/>
+             Cat Form
+            </a>
+           </li>
+           <li>
+            <a href="https://classic.wowhead.com/spell=24858/moonkin-form">
+             <img alt="Shapeshift Form" class="druid-color" src="img/spell_nature_forceofnature.jpg"/>
+             Moonkin Form
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-17061" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=17061/furor">
+           <img alt="Furor" src="img/spell_holy_blessingofstamina.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-17061">
+           激怒
+          </label>
+         </li>
+         <li>
+          <input id="spell-5229" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=5229/enrage">
+           <img alt="Enrage" src="img/ability_druid_enrage.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-5229">
+           狂怒
+          </label>
+         </li>
+         <li>
+          <input id="spell-16864" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16864/omen-of-clarity">
+           <img alt="Omen of Clarity" src="img/spell_nature_crystalball.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-16864">
+           清晰预兆
+          </label>
+         </li>
+         <li>
+          <input id="spell-16870" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16870/clearcasting">
+           <img alt="Clearcasting" src="img/spell_shadow_manaburn.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-16870">
+           节能施法
+          </label>
+         </li>
+         <li>
+          <input id="spell-22812" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22812/barkskin">
+           <img alt="Barkskin" src="img/spell_nature_stoneclawtotem.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-22812">
+           树皮术
+          </label>
+         </li>
+         <li>
+          <input id="spell-9846" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=9846/tigers-fury">
+           <img alt="Tiger's Fury" src="img/ability_mount_jungletiger.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-9846">
+           猛虎之怒
+          </label>
+         </li>
+         <li>
+          <input id="spell-22896" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22896/frenzied-regeneration">
+           <img alt="Frenzied Regeneration" src="img/ability_bullrush.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-22896">
+           狂暴回复
+          </label>
+         </li>
+         <li>
+          <input id="spell-16975" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=16975/predatory-strikes">
+           <img alt="Predatory Strikes" src="img/ability_hunter_pet_cat.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-16975">
+           猛兽攻击
+          </label>
+         </li>
+         <li>
+          <input id="spell-24894" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=24894/heart-of-the-wild">
+           <img alt="Heart of the Wild" src="img/spell_holy_blessingofagility.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-24894">
+           野性之心
+          </label>
+         </li>
+         <li>
+          <input id="spell-13494" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=13494/haste">
+           <img alt="Manual Crowd Pummeler" src="img/inv_mace_14.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-13494">
+           加速术
+          </label>
+         </li>
+         <li>
+          <input id="spell-17116" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=17116/natures-swiftness">
+           <img alt="Nature's Swiftness" src="img/spell_nature_ravenform.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-17116">
+           自然迅捷
+          </label>
+         </li>
+         <li>
+          <input id="spell-16886" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16886/natures-grace">
+           <img alt="Nature's Grace" src="img/spell_nature_naturesblessing.jpg"/>
+          </a>
+          <label class="druid-color" for="spell-16886">
+           自然之赐
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Hunter Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Hunter Buffs" src="img/classicon_hunter.jpg"/>
+        <span class="hunter-color">
+         Hunter Buffs
+        </span>
+        <a data-toggle="collapse" href="#hunter-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="hunter" data-parent="#personal-buffs" id="hunter-personal-buffs">
+         <li>
+          <small>
+           This list was assembled by looking at
+           <br/>
+           Wowhead and with some assumptions.
+           <br/>
+           Open an issue on
+           <a class="small-inline" href="https://github.com/querns/buff-cap/issues">
+            Github
+           </a>
+           if I've made a
+           <br/>
+           mistake or missed something.
+          </small>
+         </li>
+         <li>
+          <input id="spell-13165" type="checkbox"/>
+          <img alt="Personal Aspect" src="img/spell_nature_ravenform.jpg"/>
+          <label class="hunter-color" for="spell-13165">
+           雄鹰守护
+          </label>
+          <a data-toggle="collapse" href="#hunter-personal-aspect">
+           ▼
+          </a>
+          <ul class="collapse" data-info="" id="hunter-personal-aspect">
+           <li>
+            <small>
+             Aspects that affect the group aren't
+             <br/>
+             listed here.
+             <br/>
+             Check the Raid Buffs section.
+            </small>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=14322/aspect-of-the-hawk">
+             <img alt="... of the Hawk" class="hunter-color" src="img/spell_nature_ravenform.jpg"/>
+             ... Hawk
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=13163/aspect-of-the-monkey">
+             <img alt="... of the Monkey" class="hunter-color" src="img/ability_hunter_aspectofthemonkey.jpg"/>
+             ... Monkey
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=5118/aspect-of-the-cheetah">
+             <img alt="... of the Cheetah" class="hunter-color" src="img/ability_mount_jungletiger.jpg"/>
+             ... Cheetah
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=13161/aspect-of-the-beast">
+             <img alt="... of the Beast" class="hunter-color" src="img/ability_mount_pinktiger.jpg"/>
+             ... Beast
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-1515" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1515/tame-beast">
+           <img alt="Tame Beast" src="img/ability_hunter_beasttaming.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-1515">
+           驯服野兽
+          </label>
+         </li>
+         <li>
+          <input id="spell-1002" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1002/eyes-of-the-beast">
+           <img alt="Eyes of the Beast" src="img/ability_eyeoftheowl.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-1002">
+           野兽之眼
+          </label>
+         </li>
+         <li>
+          <input id="spell-1495" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=1495/mongoose-bite">
+           <img alt="Mongoose Bite Enabler" src="img/ability_hunter_swiftstrike.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-1495">
+           猫鼬撕咬
+          </label>
+          <a class="small-inline" data-toggle="collapse" href="#mongoose-bite">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="mongoose-bite">
+           Since this works similarly to
+           <a class="small-inline" href="https://classic.wowhead.com/spell=11601/revenge">
+            Revenge
+           </a>
+           ,
+           <br/>
+           I assume that an invisible buff allows
+           <br/>
+           Mongoose Bite to be cast.
+           <br/>
+           Enable if you will be struck in combat.
+          </small>
+         </li>
+         <li>
+          <input id="spell-3045" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=3045/rapid-fire">
+           <img alt="Rapid Fire" src="img/ability_hunter_runningshot.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-3045">
+           急速射击
+          </label>
+         </li>
+         <li>
+          <input id="spell-5384" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=5384/feign-death">
+           <img alt="Feign Death" src="img/ability_rogue_feigndeath.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-5384">
+           假死
+          </label>
+         </li>
+         <li>
+          <input id="spell-6150" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=6150/quick-shots">
+           <img alt="Improved A.o.t.Hawk" src="img/spell_nature_ravenform.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-6150">
+           快速射击
+          </label>
+         </li>
+         <li>
+          <input id="spell-19578" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=19578/spirit-bond">
+           <img alt="Spirit Bond" src="img/classic_ability_druid_demoralizingroar.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-19578">
+           灵魂联结
+          </label>
+         </li>
+         <li>
+          <input id="spell-19263" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19263/deterrence">
+           <img alt="Deterrence" src="img/ability_whirlwind.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-19263">
+           威慑
+          </label>
+         </li>
+         <li>
+          <input id="spell-19306" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=19306/counterattack">
+           <img alt="Counterattack" src="img/ability_warrior_challange.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-19306">
+           反击
+          </label>
+          <a class="small-inline" data-toggle="collapse" href="#counterattack">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="counterattack">
+           Since this works similarly to
+           <a class="small-inline" href="https://classic.wowhead.com/spell=11601/revenge">
+            Revenge
+           </a>
+           ,
+           <br/>
+           I assume that an invisible buff allows
+           <br/>
+           Counterattack to be cast.
+           <br/>
+           Enable if you have this talent and
+           <br/>
+           you will be struck in combat.
+          </small>
+         </li>
+        </ul>
+       </div>
+       <!--Hunter Pet Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Hunter Pet Buffs" src="img/ability_hunter_beasttraining.jpg"/>
+        <span class="hunter-color">
+         Hunter Pet Buffs
+        </span>
+        <a data-toggle="collapse" href="#hunter-pet-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="hunter" data-parent="#personal-buffs" id="hunter-pet-buffs">
+         <li>
+          <small>
+           These buffs are applied to a hunter's
+           <br/>
+           pet by its owner.
+          </small>
+         </li>
+         <li>
+          <input id="spell-21926" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=21926/natures-ally">
+           <img alt="5pc T1" src="img/inv_helmet_05.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-21926">
+           自然之友
+          </label>
+         </li>
+         <li>
+          <input id="spell-21928" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=21928/natures-ally">
+           <img alt="5pc T2" src="img/inv_belt_28.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-21928">
+           自然之友
+          </label>
+         </li>
+         <li>
+          <input id="spell-29233" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=29233/beast-of-the-unseen-path">
+           <img alt="AQ20 3pc" src="img/inv_jewelry_ring_ahnqiraj_03.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-29233">
+           隐秘通途之兽
+          </label>
+         </li>
+         <li>
+          <input id="spell-28756" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=28756/stalkers-ally">
+           <img alt="4pc T3" src="img/inv_jewelry_ring_51naxxramas.jpg"/>
+          </a>
+          <label class="hunter-color" for="spell-28756">
+           追猎者之盟
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Mage Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Mage Buffs" src="img/classicon_mage.jpg"/>
+        <span class="mage-color">
+         Mage Buffs
+        </span>
+        <a data-toggle="collapse" href="#mage-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="mage" data-parent="#personal-buffs" id="mage-personal-buffs">
+         <li>
+          <small>
+           This list was assembled by looking at
+           <br/>
+           Wowhead and with some assumptions.
+           <br/>
+           Open an issue on
+           <a class="small-inline" href="https://github.com/querns/buff-cap/issues">
+            Github
+           </a>
+           if I've made a
+           <br/>
+           mistake or missed something.
+          </small>
+         </li>
+         <li>
+          <input id="spell-12042" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=12042/arcane-power">
+           <img alt="Arcane Power" src="img/spell_nature_lightning.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-12042">
+           奥术强化
+          </label>
+         </li>
+         <li>
+          <input id="spell-22783" type="checkbox"/>
+          <img alt="Armor Spells" src="img/spell_magearmor.jpg"/>
+          <label class="mage-color" for="spell-22783">
+           魔甲术
+          </label>
+          <a data-toggle="collapse" href="#mage-armors">
+           ▼
+          </a>
+          <ul class="collapse" data-info="" id="mage-armors">
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=22783/mage-armor">
+             <img alt="Mage Armor" src="img/spell_magearmor.jpg"/>
+             Mage Armor
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10220/ice-armor">
+             <img alt="Ice Armor" src="img/spell_frost_frostarmor02.jpg"/>
+             Ice Armor
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-1953" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1953/blink">
+           <img alt="Blink" src="img/spell_arcane_blink.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-1953">
+           闪现术
+          </label>
+         </li>
+         <li>
+          <input id="spell-12536" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=12536/clearcasting">
+           <img alt="Clearcasting" src="img/spell_shadow_manaburn.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-12536">
+           节能施法
+          </label>
+         </li>
+         <li>
+          <input id="spell-28682" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=28682/combustion">
+           <img alt="Combustion" src="img/spell_fire_sealoffire.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-28682">
+           燃烧
+          </label>
+         </li>
+         <li>
+          <input id="spell-10225" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10225/fire-ward">
+           <img alt="Fire Ward" src="img/spell_fire_firearmor.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-10225">
+           防护火焰结界
+          </label>
+         </li>
+         <li>
+          <input id="spell-28609" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=28609/frost-ward">
+           <img alt="Frost Ward" src="img/spell_frost_frostward.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-28609">
+           防护冰霜结界
+          </label>
+         </li>
+         <li>
+          <input id="spell-13033" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=13033/ice-barrier">
+           <img alt="Ice Barrier" src="img/spell_ice_lament.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-13033">
+           寒冰护体
+          </label>
+         </li>
+         <li>
+          <input id="spell-11958" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=11958/ice-block">
+           <img alt="Ice Block" src="img/spell_frost_frost.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-11958">
+           寒冰屏障
+          </label>
+         </li>
+         <li>
+          <input id="spell-10193" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10193/mana-shield">
+           <img alt="Mana Shield" src="img/spell_shadow_detectlesserinvisibility.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-10193">
+           法力护盾
+          </label>
+         </li>
+         <li>
+          <input id="spell-12043" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=12043/presence-of-mind">
+           <img alt="Presence of Mind" src="img/spell_nature_enchantarmor.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-12043">
+           气定神闲
+          </label>
+         </li>
+         <li>
+          <input id="spell-130" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=130/slow-fall">
+           <img alt="Slow Fall" src="img/spell_magic_featherfall.jpg"/>
+          </a>
+          <label class="mage-color" for="spell-130">
+           缓落术
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Paladin Buffs -->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Paladin Buffs" src="img/classicon_paladin.jpg"/>
+        <span class="paladin-color">
+         Paladin Buffs
+        </span>
+        <a data-toggle="collapse" href="#paladin-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="mage" data-parent="#personal-buffs" id="paladin-personal-buffs">
+         <li>
+          <small>
+           This list was assembled by looking at
+           <br/>
+           Wowhead and with some assumptions.
+           <br/>
+           Open an issue on
+           <a class="small-inline" href="https://github.com/querns/buff-cap/issues">
+            Github
+           </a>
+           if I've made a
+           <br/>
+           mistake or missed something.
+          </small>
+         </li>
+         <li>
+          <input id="spell-20293" type="checkbox"/>
+          <img alt="Seal of..." src="img/ability_thunderbolt.jpg"/>
+          <label class="paladin-color" for="spell-20293">
+           正义圣印
+          </label>
+          <a data-toggle="collapse" href="#paladin-seals">
+           ▼
+          </a>
+          <ul class="collapse" data-info="" id="paladin-seals">
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20293/seal-of-righteousness">
+             <img alt="Seal of Righteousness" class="paladin-color" src="img/ability_thunderbolt.jpg"/>
+             ... Righteousness
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20308/seal-of-the-crusader">
+             <img alt="Seal of the Crusader" class="paladin-color" src="img/spell_holy_holysmite.jpg"/>
+             ... the Crusader
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20349/seal-of-light">
+             <img alt="Seal of Light" class="paladin-color" src="img/spell_holy_healingaura.jpg"/>
+             ... Light
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20357/seal-of-wisdom">
+             <img alt="Seal of Wisdom" class="paladin-color" src="img/spell_holy_righteousnessaura.jpg"/>
+             ... Wisdom
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20164/seal-of-justice">
+             <img alt="Seal of Justice" class="paladin-color" src="img/spell_holy_sealofwrath.jpg"/>
+             ... Justice
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20920/seal-of-command">
+             <img alt="Seal of Command" class="paladin-color" src="img/ability_warrior_innerrage.jpg"/>
+             ... Command
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-1020" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1020/divine-shield">
+           <img alt="Divine Shield" src="img/spell_holy_divineintervention.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-1020">
+           圣盾术
+          </label>
+         </li>
+         <li>
+          <input id="spell-25780" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=25780/righteous-fury">
+           <img alt="Righteous Fury" src="img/spell_holy_sealoffury.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-25780">
+           正义之怒
+          </label>
+         </li>
+         <li>
+          <input id="spell-20216" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20216/divine-favor">
+           <img alt="Divine Favor" src="img/spell_holy_heal.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-20216">
+           神恩术
+          </label>
+         </li>
+         <li>
+          <input id="spell-20925" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20925/holy-shield">
+           <img alt="Holy Shield" src="img/classic_spell_holy_blessingofprotection.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-20925">
+           神圣之盾
+          </label>
+         </li>
+         <li>
+          <input id="spell-20055" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=20055/vengeance">
+           <img alt="Vengeance" src="img/ability_racial_avatar.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-20055">
+           复仇
+          </label>
+         </li>
+         <li>
+          <input id="spell-27499" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27499/crusaders-wrath">
+           <img alt="6pc T0/T0.5 Proc" src="img/spell_nature_groundingtotem.jpg"/>
+          </a>
+          <label class="paladin-color" for="spell-27499">
+           十字军之怒
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Priest Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Priest Buffs" src="img/classicon_priest.jpg"/>
+        <span class="priest-color">
+         Priest Buffs
+        </span>
+        <a data-toggle="collapse" href="#priest-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="priest" data-parent="#personal-buffs" id="priest-personal-buffs">
+         <li>
+          <input id="spell-19293" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19293/elunes-grace">
+           <img alt="Elune's Grace" src="img/spell_holy_elunesgrace.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-19293">
+           艾露恩的赐福
+          </label>
+         </li>
+         <li>
+          <input id="spell-10942" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10942/fade">
+           <img alt="Fade" src="img/spell_magic_lesserinvisibilty.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-10942">
+           渐隐术
+          </label>
+         </li>
+         <li>
+          <input id="spell-19275" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19275/feedback">
+           <img alt="Feedback" src="img/spell_shadow_ritualofsacrifice.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-19275">
+           回馈
+          </label>
+         </li>
+         <li>
+          <input id="spell-10952" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10952/inner-fire">
+           <img alt="Inner Fire" src="img/spell_holy_innerfire.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-10952">
+           心灵之火
+          </label>
+         </li>
+         <li>
+          <input id="spell-1706" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1706/levitate">
+           <img alt="Levitate" src="img/spell_holy_layonhands.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-1706">
+           漂浮术
+          </label>
+         </li>
+         <li>
+          <input id="spell-19312" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19312/shadowguard">
+           <img alt="Shadowguard" src="img/spell_nature_lightningshield.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-19312">
+           暗影守卫
+          </label>
+         </li>
+         <li>
+          <input id="spell-19266" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19266/touch-of-weakness">
+           <img alt="Touch of Weakness" src="img/spell_shadow_deadofnight.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-19266">
+           虚弱之触
+          </label>
+         </li>
+         <li>
+          <input id="spell-27828" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27828/focused-casting">
+           <img alt="Focused Casting" src="img/spell_arcane_blink.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-27828">
+           专注施法
+          </label>
+         </li>
+         <li>
+          <input id="spell-14751" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=14751/inner-focus">
+           <img alt="Inner Focus" src="img/spell_frost_windwalkon.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-14751">
+           心灵专注
+          </label>
+         </li>
+         <li>
+          <input id="spell-27816" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=27818/blessed-recovery">
+           <img alt="Blessed Recovery" src="img/spell_holy_blessedrecovery.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-27816">
+           神恩回复
+          </label>
+         </li>
+         <li>
+          <input id="spell-15271" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=15271/spirit-tap">
+           <img alt="Spirit Tap" src="img/spell_shadow_requiem.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-15271">
+           精神分流
+          </label>
+         </li>
+         <li>
+          <input id="spell-15473" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=15473/shadowform">
+           <img alt="Shadowform" src="img/spell_shadow_shadowform.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-15473">
+           暗影形态
+          </label>
+         </li>
+         <li>
+          <input id="spell-21976" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=21976/reactive-fade">
+           <img alt="5pc T2 proc (Reactive Fade)" src="img/inv_chest_cloth_03.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-21976">
+           活性消隐
+          </label>
+         </li>
+         <li>
+          <input id="spell-28804" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=28804/epiphany">
+           <img alt="8pc T3 proc (Epiphany)" src="img/inv_jewelry_ring_51naxxramas.jpg"/>
+          </a>
+          <label class="priest-color" for="spell-28804">
+           显灵
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Rogue Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Rogue Buffs" src="img/classicon_rogue.jpg"/>
+        <span class="rogue-color">
+         Rogue Buffs
+        </span>
+        <a data-toggle="collapse" href="#rogue-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="rogue" data-parent="#personal-buffs" id="rogue-personal-buffs">
+         <li>
+          <input id="spell-6774" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=6774/slice-and-dice">
+           <img alt="Slice and Dice" src="img/ability_rogue_slicedice.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-6774">
+           切割
+          </label>
+         </li>
+         <li>
+          <input id="spell-13877" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=13877/blade-flurry">
+           <img alt="Blade Flurry" src="img/ability_warrior_punishingblow.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-13877">
+           剑刃乱舞
+          </label>
+         </li>
+         <li>
+          <input id="spell-13750" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=13750/adrenaline-rush">
+           <img alt="Adrenaline Rush" src="img/spell_shadow_shadowworddominate.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-13750">
+           冲动
+          </label>
+         </li>
+         <li>
+          <input id="spell-5277" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=5277/evasion">
+           <img alt="Evasion" src="img/spell_shadow_shadowward.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-5277">
+           闪避
+          </label>
+         </li>
+         <li>
+          <input id="spell-11305" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=11305/sprint">
+           <img alt="Sprint" src="img/ability_rogue_sprint.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-11305">
+           疾跑
+          </label>
+         </li>
+         <li>
+          <input data-stealth="" id="spell-1787" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1787/stealth">
+           <img alt="Stealth" src="img/ability_stealth.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-1787">
+           潜行
+          </label>
+         </li>
+         <li>
+          <input data-vanish="" id="spell-1857" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1857/vanish">
+           <img alt="Vanish" src="img/ability_vanish.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-1857">
+           消失
+          </label>
+         </li>
+         <li>
+          <input data-vanish="" id="spell-18461" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=18461/vanish-purge">
+           <img alt="Vanish Purge" src="img/ability_vanish.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-18461">
+           消失净化
+          </label>
+          <a data-toggle="collapse" href="#vanish-purge">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" data-info="" id="vanish-purge">
+           Invisible buff lasting 1 second when Vanish is used.
+          </small>
+         </li>
+         <li>
+          <input id="spell-14177" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=14177/cold-blood">
+           <img alt="Cold Blood" src="img/spell_ice_lament.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-14177">
+           冷血
+          </label>
+         </li>
+         <li>
+          <input id="spell-14278" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=14278/ghostly-strike">
+           <img alt="Ghostly Strike" src="img/spell_shadow_curse.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-14278">
+           鬼魅攻击
+          </label>
+         </li>
+         <li>
+          <input id="spell-14251" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=14251/riposte">
+           <img alt="Riposte Enabler" src="img/ability_warrior_challange.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-14251">
+           还击
+          </label>
+          <a class="small-inline" data-toggle="collapse" href="#riposte">
+           <img alt="More Info" data-info="" src="img/Information.png"/>
+          </a>
+          <small class="collapse mb-sm-3" id="riposte">
+           Since this works similarly to
+           <a class="small-inline" href="https://classic.wowhead.com/spell=11601/revenge">
+            Revenge
+           </a>
+           ,
+           <br/>
+           I assume that an invisible buff allows
+           <br/>
+           Riposte to be cast.
+           <br/>
+           Enable if you will be struck in combat.
+          </small>
+         </li>
+         <li>
+          <input id="spell-23580" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23580/bloodfang">
+           <img alt="8pc T2 Proc" src="img/spell_shadow_lifedrain.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-23580">
+           血牙
+          </label>
+         </li>
+         <li>
+          <input id="spell-28814" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=28814/revealed-flaw">
+           <img alt="8pc T3 Proc" src="img/ability_warrior_decisivestrike.jpg"/>
+          </a>
+          <label class="rogue-color" for="spell-28814">
+           破绽
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Shaman Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Shaman Buffs" src="img/classicon_shaman.jpg"/>
+        <span class="shaman-color">
+         Shaman Buffs
+        </span>
+        <a data-toggle="collapse" href="#shaman-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="warlock" data-parent="#personal-buffs" id="shaman-personal-buffs">
+         <li>
+          <input id="spell-6196" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=6196/far-sight">
+           <img alt="Far Sight" src="img/spell_nature_farsight.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-6196">
+           视界术
+          </label>
+         </li>
+         <li>
+          <input id="spell-2645" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=2645/ghost-wolf">
+           <img alt="Ghost Wolf" src="img/spell_nature_spiritwolf.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-2645">
+           幽魂之狼
+          </label>
+         </li>
+         <li>
+          <input id="spell-10432" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=10432/lightning-shield">
+           <img alt="Lightning Shield" src="img/spell_nature_lightningshield.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-10432">
+           闪电之盾
+          </label>
+         </li>
+         <li>
+          <input id="spell-6495" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=6495/sentry-totem">
+           <img alt="Sentry Totem" src="img/spell_nature_removecurse.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-6495">
+           岗哨图腾
+          </label>
+          <span class="inline-small priest-color">
+           (Air)
+          </span>
+         </li>
+         <li>
+          <input id="spell-131" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=131/water-breathing">
+           <img alt="Water Breathing" src="img/spell_shadow_demonbreath.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-131">
+           水下呼吸
+          </label>
+         </li>
+         <li>
+          <input id="spell-546" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=546/water-walking">
+           <img alt="Water Walking" src="img/spell_frost_windwalkon.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-546">
+           水上行走
+          </label>
+         </li>
+         <li>
+          <input id="spell-16246" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16246/clearcasting">
+           <img alt="Elemental Focus" src="img/spell_shadow_manaburn.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-16246">
+           节能施法
+          </label>
+         </li>
+         <li>
+          <input id="spell-29063" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=29063/focused-casting">
+           <img alt="Eye of the Storm" src="img/spell_nature_eyeofthestorm.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-29063">
+           专注施法
+          </label>
+         </li>
+         <li>
+          <input id="spell-30160" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=30160/elemental-devastation">
+           <img alt="Elemental Devastation" src="img/classic_spell_fire_elementaldevastation.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-30160">
+           元素浩劫
+          </label>
+         </li>
+         <li>
+          <input id="spell-16166" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16166/elemental-mastery">
+           <img alt="Elemental Mastery" src="img/spell_nature_wispheal.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-16166">
+           元素掌握
+          </label>
+         </li>
+         <li>
+          <input id="spell-16280" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16280/flurry">
+           <img alt="Flurry" src="img/ability_ghoulfrenzy.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-16280">
+           乱舞
+          </label>
+         </li>
+         <li>
+          <input id="spell-16188" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=16188/natures-swiftness">
+           <img alt="Nature's Swiftness" src="img/spell_nature_ravenform.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-16188">
+           自然迅捷
+          </label>
+         </li>
+         <li>
+          <input id="spell-26119" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=26119/stormcaller-spelldamage-bonus">
+           <img alt="3pc AQ40 set proc (Stormcaller's Wrath)" src="img/inv_helmet_73.jpg"/>
+          </a>
+          <label class="shaman-color" for="spell-26119">
+           Stormcaller Spelldamage Bonus
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Warlock Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Warlock Buffs" src="img/classicon_warlock.jpg"/>
+        <span class="warlock-color">
+         Warlock Buffs
+        </span>
+        <a data-toggle="collapse" href="#warlock-personal-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="warlock" data-parent="#personal-buffs" id="warlock-personal-buffs">
+         <li>
+          <input id="spell-11735" type="checkbox"/>
+          <img alt="Demon Armor" src="img/spell_shadow_ragingscream.jpg"/>
+          <label class="warlock-color" for="spell-11735">
+           魔甲术
+          </label>
+          <a data-toggle="collapse" href="#demon-armor">
+           ▼
+          </a>
+          <ul class="collapse" data-info="" id="demon-armor">
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=11735/demon-armor">
+             <img alt="Demon Armor" class="warlock-color" src="img/spell_shadow_ragingscream.jpg"/>
+             Demon Armor
+            </a>
+           </li>
+           <li>
+            <a data-wowhead="buff" href="https://classic.wowhead.com/spell=696/demon-skin">
+             <img alt="Demon Skin" class="warlock-color" src="img/spell_shadow_ragingscream.jpg"/>
+             Demon Skin
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-28610" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=28610/shadow-ward">
+           <img alt="Shadow Ward" src="img/spell_shadow_antishadow.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-28610">
+           防护暗影结界
+          </label>
+         </li>
+         <li>
+          <input id="spell-17949" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=17949/firestone-passive">
+           <img alt="Firestone Enchant" src="img/inv_misc_gem_bloodstone_02.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-17949">
+           Firestone Passive
+          </label>
+         </li>
+         <li>
+          <input id="spell-17730" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=17730/major-spellstone">
+           <img alt="Spellstone Absorb" src="img/inv_misc_gem_sapphire_01.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-17730">
+           特效法术石
+          </label>
+         </li>
+         <li>
+          <input id="spell-19443" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=19443/sacrifice">
+           <img alt="Sacrifice" src="img/spell_shadow_sacrificialshield.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-19443">
+           牺牲
+          </label>
+         </li>
+         <li>
+          <input id="spell-11695" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=11695/health-funnel">
+           <img alt="Health Funnel" src="img/spell_shadow_lifedrain.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-11695">
+           生命通道
+          </label>
+         </li>
+         <li>
+          <input id="spell-11684" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=11684/hellfire">
+           <img alt="Hellfire" src="img/spell_fire_incinerate.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-11684">
+           地狱烈焰
+          </label>
+         </li>
+         <li>
+          <input id="spell-126" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=126/eye-of-kilrogg">
+           <img alt="Eye of Kilrogg" src="img/spell_shadow_evileye.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-126">
+           基尔罗格之眼
+          </label>
+         </li>
+         <li>
+          <input id="spell-19028" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=19028/soul-link">
+           <img alt="Soul Link" src="img/spell_shadow_gathershadows.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-19028">
+           灵魂链接
+          </label>
+         </li>
+         <li>
+          <input id="spell-23844" type="checkbox"/>
+          <img alt="Master Demonologist" src="img/spell_shadow_shadowpact.jpg"/>
+          <label class="warlock-color" for="spell-23844">
+           恶魔学识大师
+          </label>
+          <a data-toggle="collapse" href="#master-demonologist">
+           ▼
+          </a>
+          <ul class="collapse" data-info="" id="master-demonologist">
+           <li>
+            <a class="warlock-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=23829/master-demonologist">
+             <img alt="Imp" src="img/spell_shadow_summonimp.jpg"/>
+             Imp
+            </a>
+           </li>
+           <li>
+            <a class="warlock-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=23844/master-demonologist">
+             <img alt="Voidwalker" src="img/spell_shadow_summonvoidwalker.jpg"/>
+             Voidwalker
+            </a>
+           </li>
+           <li>
+            <a class="warlock-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=23836/master-demonologist">
+             <img alt="Succubus" src="img/spell_shadow_summonsuccubus.jpg"/>
+             Succubus
+            </a>
+           </li>
+           <li>
+            <a class="warlock-color small-inline" data-wowhead="buff" href="https://classic.wowhead.com/spell=23762/master-demonologist">
+             <img alt="Felhunter" src="img/spell_shadow_summonfelhunter.jpg"/>
+             Felhunter
+            </a>
+            <a class="small-inline" data-toggle="collapse" href="#felhunter-master-demonologist">
+             <img alt="More Info" data-info="" src="img/Information.png"/>
+            </a>
+            <small class="collapse mb-sm-3" id="felhunter-master-demonologist">
+             Increases magic resists by 60.
+            </small>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-18788" type="checkbox"/>
+          <img alt="Demonic Sacrifice" src="img/spell_shadow_psychicscream.jpg"/>
+          <label class="warlock-color" for="spell-18788">
+           恶魔牺牲
+          </label>
+          <a data-toggle="collapse" href="#demonic-sacrifice">
+           ▼
+          </a>
+          <ul class="collapse" data-info="" id="demonic-sacrifice">
+           <li>
+            <a class="warlock-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=18789/burning-wish">
+             <img alt="Burning Wish" src="img/spell_shadow_summonimp.jpg"/>
+             Burning Wish
+            </a>
+           </li>
+           <li>
+            <a class="warlock-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=18790/fel-stamina">
+             <img alt="Fel Stamina" src="img/spell_shadow_summonvoidwalker.jpg"/>
+             Fel Stamina
+            </a>
+           </li>
+           <li>
+            <a class="warlock-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=18791/touch-of-shadow">
+             <img alt="Touch of Shadow" src="img/spell_shadow_summonsuccubus.jpg"/>
+             Touch of Shadow
+            </a>
+           </li>
+           <li>
+            <a class="warlock-color" data-wowhead="buff" href="https://classic.wowhead.com/spell=18792/fel-energy">
+             <img alt="Fel Energy" src="img/spell_shadow_summonfelhunter.jpg"/>
+             Fel Energy
+            </a>
+           </li>
+          </ul>
+         </li>
+         <li>
+          <input id="spell-18288" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=18288/amplify-curse">
+           <img alt="Amplify Curse" src="img/spell_shadow_contagion.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-18288">
+           诅咒增幅
+          </label>
+         </li>
+         <li>
+          <input id="spell-1120" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=1120/drain-soul">
+           <img alt="Drain Soul" src="img/spell_shadow_haunting.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-1120">
+           吸取灵魂
+          </label>
+         </li>
+         <li>
+          <input id="spell-18371" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=18371/soul-siphon">
+           <img alt="Improved Drain Soul" src="img/spell_shadow_haunting.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-18371">
+           灵魂虹吸
+          </label>
+         </li>
+         <li>
+          <input id="spell-17941" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=17941/shadow-trance">
+           <img alt="Nightfall" src="img/spell_shadow_twilight.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-17941">
+           暗影冥思
+          </label>
+         </li>
+        </ul>
+       </div>
+       <!--Warlock Pet Buffs-->
+       <div class="has-buff-count">
+        <span class="buff-count" data-html="true" data-toggle="tooltip" title="Click the ▼ to expand this group.&lt;br /&gt;Click this box to clear all marked members of this group.">
+        </span>
+        <img alt="Warlock Pet Buffs" src="img/spell_shadow_summonvoidwalker.jpg"/>
+        <span class="warlock-color">
+         Warlock Pet Buffs
+        </span>
+        <a data-toggle="collapse" href="#warlock-pet-buffs">
+         ▼
+        </a>
+        <ul class="collapse mb-sm-3 sub-section personal-buffs" data-class="warlock" data-parent="#personal-buffs" id="warlock-pet-buffs">
+         <li>
+          <small>
+           These buffs are applied to a warlock's
+           <br/>
+           pet by its master.
+          </small>
+         </li>
+         <li>
+          <input data-exclusive="warlock-5pc" id="spell-21741" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=21741/demonic-ally">
+           <img alt="Felheart 5pc" src="img/inv_chest_cloth_09.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-21741">
+           恶魔盟约
+          </label>
+         </li>
+         <li>
+          <input data-exclusive="warlock-5pc" id="spell-21922" type="checkbox"/>
+          <a href="https://classic.wowhead.com/spell=21922/demonic-ally">
+           <img alt="Nemesis 5pc" src="img/inv_chest_leather_01.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-21922">
+           恶魔盟约
+          </label>
+         </li>
+         <li>
+          <input id="spell-23720" type="checkbox"/>
+          <a data-wowhead="buff" href="https://classic.wowhead.com/spell=23720/blessing-of-the-black-book">
+           <img alt="The Black Book" src="img/inv_misc_book_06.jpg"/>
+          </a>
+          <label class="warlock-color" for="spell-23720">
+           黑龙之书的祝福
+          </label>
+         </li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </main>
+  <div class="modal fade" id="about-modal" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h4 class="modal-title">
+       About Buff Cap Calculator
+      </h4>
+      <button aria-label="Close" class="close text-light" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <blockquote class="ml-4 mr-4">
+       This website aims to assist you with calculating your buff cap in World of Warcraft: Classic.
+      </blockquote>
+      <h5>
+       What is the buff cap?
+      </h5>
+      <blockquote class="ml-4 mr-4 text-justify">
+       In WOW Classic, you can only have 32 buffs on your character at once. Exceeding this number means
+                    that the oldest buff will vanish. Invariably, this is one of your world buffs like
+       <a href="https://classic.wowhead.com/spell=22820/slipkiks-savvy">
+        Slip'kik's Savvy
+       </a>
+       . To prevent
+                    important buffs from disappearing, strict rationing of buffs is required. This website should help
+                    with that.
+      </blockquote>
+      <h5>
+       Who is responsible for this?
+      </h5>
+      <blockquote class="ml-4 mr-5 text-justify">
+       <p>
+        This website was originally written by Querns. I'm on Fairbanks (Horde) as "Querns" if you want to send
+                        me some gold. The tool was adapted from a body of work from the Fight Club discord chat server,
+                        but quickly grew beyond its warrior focus to encompass as much information about every class as
+                        I could gather.
+       </p>
+       <p>
+        Buff Cap Calculator is
+        <a href="https://github.com/querns/buff-cap/">
+         open source
+        </a>
+        . If
+                        something is missing, pull requests are always welcome. If you can't write code yourself, feel
+                        free to open an issue. Include as much information as possible.
+       </p>
+       <p>
+        <img alt="CC-BY-NC-SA" src="img/Cc-by-nc-sa_icon.svg.png"/>
+        <br/>
+        Buff Cap Calculator is released under the the
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+         Creative Commons Attribution-
+                        NonCommercial-ShareAlike 4.0 International
+        </a>
+        license.
+       </p>
+      </blockquote>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div aria-atomic="true" aria-live="assertive" class="toast hide" data-delay="5000" id="copy-toast" role="alert">
+   <div class="toast-header">
+    <img alt="" class="mr-2" src="img/spell_shadow_twilight.jpg"/>
+    <strong class="mr-auto">
+     URL Copied!
+    </strong>
+    <button aria-label="Close" class="ml-2 mb-1 close" data-dismiss="toast" type="button">
+     <span aria-hidden="true">
+      ×
+     </span>
+    </button>
+   </div>
+   <div class="toast-body text-dark">
+    URL copied to the clipboard. Share with others by pasting them the link.
+   </div>
+  </div>
+  <div aria-atomic="true" aria-live="assertive" class="toast hide" data-delay="5000" id="personal-buff-toast" role="alert">
+   <div class="toast-header">
+    <img alt="" class="mr-2" src="img/spell_nature_purge.jpg"/>
+    <strong class="mr-auto">
+     Personal Buffs Cleared
+    </strong>
+    <button aria-label="Close" class="ml-2 mb-1 close" data-dismiss="toast" type="button">
+     <span aria-hidden="true">
+      ×
+     </span>
+    </button>
+   </div>
+   <div class="toast-body text-justify text-dark">
+    <p>
+     You can only select personal buffs for one class.
+    </p>
+    <p>
+     <span id="buff-class-removed">
+     </span>
+     personal buffs were cleared since you selected
+     <span id="buff-class-selected">
+     </span>
+     personal buffs.
+    </p>
+   </div>
+  </div>
+  <div class="modal fade" id="non-profession-exclusion-modal" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h4 class="modal-title">
+       Non-Profession Consumable Exclusion Category
+      </h4>
+      <button aria-label="Close" class="close text-light" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      Valentine's Day Collections, Zanza Potions, and Blasted Lands consumables are all mutually exclusive.
+                They don't stack, and consuming one of these types of items will overwrite the buff from one you may
+                have taken previously.
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="modal fade" id="arcane-might-explanation" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h4 class="modal-title">
+       Arcane Might
+      </h4>
+      <button aria-label="Close" class="close text-light" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body text-justify">
+      <p>
+       <a data-wowhead="buff" href="https://classic.wowhead.com/spell=17150/arcane-might">
+        Arcane Might
+       </a>
+       is a buff available from
+       <a href="https://classic.wowhead.com/npc=10422/crimson-sorcerer">
+        Crimson
+                    Sorcerers
+       </a>
+       in Stratholme (Live Side.)
+      </p>
+      <p>
+       Acquiring Arcane Might requires unusual action. Priests employing their Mind Control ability
+       <b>
+        CANNOT
+       </b>
+       cast this buff. In order to acquire this buff, a
+       <a href="https://classic.wowhead.com/item=10726/gnomish-mind-control-cap">
+        侏儒洗脑帽
+       </a>
+       must be employed. Use it on the Crimson Sorcerer, and wait a few seconds. The NPC should buff you
+                    with the ability shortly.
+      </p>
+      <p>
+       The exact mechanics in play here are not known to me at this time. If I had to guess, it is because
+                    of the pet bar UI. Crimson Sorcerers have
+       <a href="https://classicdb.ch/?npc=10422#abilities">
+        five
+                    abilities
+       </a>
+       , and the pet bar only has room for four. Even though the pet bar UI is used when a
+                    priest uses his or her Mind Control ability, direct movement control of the NPC is granted to the
+                    priest. This prevents the NPC from auto-casting its abilities. Conversely, a Gnomish Mind Control cap
+                    makes the NPC your pet, and it is free to auto-cast its abilities.
+      </p>
+      <p>
+       UPDATE 2020/05/26: Testing has been performed, and it is confirmed that Priests are neither able to
+                    use a macro to force the mind controlled mob to cast the ability, nor are they able to manually type
+                    a
+       <code>
+        /cast
+       </code>
+       command to force the spell cast. Big thanks to Rivx of Razorgore (EU) for doing
+                    the testing for this.
+       <a href="https://gfycat.com/anycircularduiker">
+        (video proof)
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script crossorigin="anonymous" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" src="https://code.jquery.com/jquery-3.4.1.slim.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+  </script>
+  <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/clipboard.js/1.5.10/clipboard.min.js">
+  </script>
+  <script src="main.js" type="application/javascript">
+  </script>
+ </body>
+</html>
